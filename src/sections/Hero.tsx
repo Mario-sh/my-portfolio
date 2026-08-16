@@ -44,7 +44,7 @@ const Hero = () => {
             className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-foreground"
           >
             <span className="block">{personalInfo.name}</span>
-            <span className="block text-muted text-3xl sm:text-5xl lg:text-7xl">
+            <span className="block text-muted text-3xl sm:text-5xl lg:text-7xl leading-[1.1]">
               {personalInfo.role}
             </span>
           </motion.h1>

@@ -1,14 +1,14 @@
 {
-  "name": "Aj7 Portfolio",
-  "short_name": "Aj7",
-  "description": "Aj7 Portfolio - Personal website and portfolio of Abdul Jaber.",
+  "name": "Mario Lokossou — Portfolio",
+  "short_name": "Mario Lokossou",
+  "description": "Portfolio de Mario Lokossou — Software Engineer en formation, spécialisé en intégration IA.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#050505",
+  "theme_color": "#050505",
   "orientation": "portrait",
   "scope": "/",
-  "lang": "en",
+  "lang": "fr",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",

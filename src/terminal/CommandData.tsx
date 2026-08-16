@@ -52,14 +52,18 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
       </div>
       <div>
         {personalInfo.aboutText1}
-        <a
-          href={personalInfo.collegeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary font-bold hover:underline"
-        >
-          {personalInfo.college}
-        </a>
+        {personalInfo.collegeUrl ? (
+          <a
+            href={personalInfo.collegeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary font-bold hover:underline"
+          >
+            {personalInfo.college}
+          </a>
+        ) : (
+          <span className="font-bold">{personalInfo.college}</span>
+        )}
         {personalInfo.aboutText2}
       </div>
     </div>

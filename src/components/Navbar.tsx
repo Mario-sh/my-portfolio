@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Terminal, Code2, Github, Sun, Moon } from "lucide-react";
-import { contactItems } from "../data/userData";
+import { contactItems, personalInfo } from "../data/userData";
 import type { Theme } from "../hooks/useTheme";
 
 const githubUrl = contactItems.find((i) => i.label === "GitHub")?.href ?? "#";
@@ -28,7 +28,17 @@ const Navbar = ({ terminalMode, setTerminalMode, theme, toggleTheme }: Props) =>
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${terminalMode ? "py-0" : scrolled ? "py-3" : "py-4"
         }`}
     >
-      <div className={`mx-auto transition-all duration-500 ${terminalMode ? "max-w-full px-0 mt-2" : "max-w-7xl px-2 sm:px-4 lg:px-6"
+      {/*
+        Fond plein bord à bord, indépendant de la pastille intérieure : sans lui, les marges
+        extérieures de la nav restent transparentes et le contenu de la page (peu importe sa
+        hauteur) peut se glisser derrière la barre au scroll. Ce calque garantit qu'aucun
+        contenu ne "déborde" derrière la nav, quel que soit ce qu'il y a en dessous.
+      */}
+      <div
+        className={`absolute inset-0 z-0 transition-opacity duration-500 ${!terminalMode && scrolled ? "opacity-100 bg-background/95 backdrop-blur-xl border-b border-border" : "opacity-0"
+          }`}
+      />
+      <div className={`relative z-10 mx-auto transition-all duration-500 ${terminalMode ? "max-w-full px-0 mt-2" : "max-w-7xl px-2 sm:px-4 lg:px-6"
         }`}>
         <div
           className={`relative flex items-center justify-between px-2 sm:px-4 transition-all duration-500 ${terminalMode
@@ -59,7 +69,10 @@ const Navbar = ({ terminalMode, setTerminalMode, theme, toggleTheme }: Props) =>
             </div>
             <div className="relative">
               <span className="font-black text-2xl tracking-tighter uppercase text-foreground flex items-baseline">
-                AJ<span className={`text-[17px] ml-0.5 transition-colors ${terminalMode ? "text-muted group-hover:text-green-500" : "text-muted group-hover:text-blue-500"}`}>SEVEN</span>
+                {personalInfo.alias}
+                <span className={`text-[17px] ml-0.5 transition-colors ${terminalMode ? "text-muted group-hover:text-green-500" : "text-muted group-hover:text-blue-500"}`}>
+                  {personalInfo.name.split(" ").slice(1).join(" ")}
+                </span>
               </span>
               <div className={`absolute -bottom-0.5 left-0 h-1 rounded-full transition-all duration-300 w-0 group-hover:w-full ${terminalMode ? "bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" : "bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"}`} />
             </div>

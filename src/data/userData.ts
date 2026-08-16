@@ -6,39 +6,26 @@ import {
 import XIcon from "../components/XIcon";
 
 export const personalInfo = {
-  name: "Abdul Jaber",
-  alias: "Aj7",
-  shortAlias: "AJ",
-  location: "Andhra Pradesh, India",
-  role: "Full Stack Developer",
-  roles: [
-    "Full Stack Developer",
-    "Tech Explorer",
-    "Linux Enthusiast",
-  ],
-  college: "Dr. SGIT",
-  collegeUrl: "https://drsgiet.ac.in/",
-  avatarUrl: "/assets/ME.jpg",
-  status: "Available for work",
-  aboutText: "Full-stack engineer specializing in scalable systems and AI-driven solutions. Crafting high-performance digital products with precision and purpose.",
-  aboutText1: "I’m Abdul Jaber, based in Andhra Pradesh, India. I graduated in Electronics and Communication Engineering from ",
-  aboutText2: ". I design and build full-stack applications, with an increasing focus on Artificial Intelligence. My work focuses on building scalable systems, solving complex problems clearly, and delivering practical, real-world solutions.",
+  name: "Mario Lokossou",
+  // Nom complet, utilisé pour le SEO (meta description, title étendu) plutôt que dans le Hero.
+  fullName: "Mario Miguel Dylane Lokossou Soton",
+  alias: "Mario",
+  shortAlias: "ML",
+  location: "Cotonou, Bénin",
+  role: "Full-Stack Developer and aspiring AI Engineer",
+  college: "ESGIS Cotonou",
+  // TODO: ajouter l'URL du site de votre école si vous voulez que "ESGIS Cotonou" soit un lien
+  collegeUrl: "",
+  avatarUrl: "/assets/ME.jpg", // TODO: remplacer par votre photo
+  status: "Ouvert aux opportunités",
+  aboutText:
+    "Je conçois des applications web robustes et j'intègre des capacités IA concrètes — RAG, APIs LLM, automatisation. En formation en architecture logicielle à l'ESGIS, je cherche un stage ou une opportunité pour construire des systèmes qui comptent.",
+  aboutText1: "Étudiant en 3ème année à ",
+  aboutText2:
+    ", je me forme à l'architecture logicielle tout en construisant des projets réels — applications web fullstack, intégrations d'APIs LLM, automatisation. Mon objectif : devenir Software Engineer spécialisé IA.",
 };
 
-// removed react-icons
-export const fetchData = [
-  { label: "User", value: "aj7@garuda" },
-  { label: "OS", value: "Garuda Linux Broadwing x86_64" },
-  { label: "Host", value: "ASUS TUF Gaming F15 FX506HF" },
-  { label: "Kernel", value: "6.14.2-zen1-1-zen" },
-  { label: "Packages", value: "1519 (pacman)" },
-  { label: "Shell", value: "zsh 5.9" },
-  { label: "CPU", value: "i5-11400H (12) @ 4.50GHz" },
-  { label: "GPU", value: "Intel UHD + RTX 2050" },
-  { label: "Memory", value: "15725MiB" },
-  { label: "Peak Uptime", value: "13 hour's" },
-];
-
+// TODO(contenu): skills à remplacer par votre vraie stack (Mario a mentionné web + mobile + IA)
 export const skills = [
   {
     category: "Frontend",
@@ -80,13 +67,14 @@ export const skills = [
 ];
 
 export const facts = [
-  "Student",
-  "Passion for tech",
-  "Learner",
-  "Linux Enthusiast",
-  "Full Stack Developer",
+  "Étudiant",
+  "Développeur Web & Logiciel",
+  "Passionné d'IA",
+  "Hackathons IA",
+  "Futur AI Engineer",
 ];
 
+// TODO(contenu): timeline à remplacer par votre vrai parcours (hackathons, succès, dates réelles)
 export const timeline = [
   {
     year: "2026",
@@ -132,6 +120,7 @@ export const timeline = [
   },
 ];
 
+// TODO(contenu): contactItems à remplacer par vos vrais liens (GitHub, LinkedIn, email, etc.)
 export const contactItems = [
   {
     icon: Github,
@@ -163,6 +152,7 @@ export const contactItems = [
   },
 ];
 
+// TODO(contenu): projectData à remplacer par vos vrais projets
 export const projectData = [
   {
     name: "AI-Hub",
@@ -237,6 +227,7 @@ export const projectData = [
   },
 ];
 
+// TODO(contenu): lien vers votre vrai CV
 export const resume = {
   "full-stack-developer": "https://rxresu.me/aj-seven/full-stack-developer",
 };

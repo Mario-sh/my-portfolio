@@ -50,14 +50,18 @@ const About = () => {
               className="text-base md:text-xl lg:text-2xl text-muted leading-relaxed font-medium"
             >
               {personalInfo.aboutText1}
-              <a
-                href={personalInfo.collegeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground hover:text-blue-500 underline decoration-blue-500/30 transition-colors"
-              >
-                {personalInfo.college}
-              </a>
+              {personalInfo.collegeUrl ? (
+                <a
+                  href={personalInfo.collegeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-blue-500 underline decoration-blue-500/30 transition-colors"
+                >
+                  {personalInfo.college}
+                </a>
+              ) : (
+                <span className="text-foreground font-bold">{personalInfo.college}</span>
+              )}
               {personalInfo.aboutText2}
             </motion.p>
           </div>
