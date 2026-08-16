@@ -31,7 +31,7 @@ const Projects = ({ limit }: { limit?: number }) => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter"
+            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-foreground tracking-tighter"
           >
             Featured Projects
           </motion.h2>
@@ -39,7 +39,7 @@ const Projects = ({ limit }: { limit?: number }) => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-base md:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-medium"
+            className="text-base md:text-lg lg:text-xl text-muted max-w-2xl mx-auto font-medium"
           >
             A collection of my most impactful work, from web applications to creative experiments.
           </motion.p>
@@ -52,8 +52,8 @@ const Projects = ({ limit }: { limit?: number }) => {
             className={clsx(
               "px-4 py-2 rounded-full text-sm font-black transition-all duration-300 uppercase tracking-widest border",
               activeCategory === "all"
-                ? "bg-white text-black border-white"
-                : "text-zinc-500 border-white/10 hover:border-white/30 hover:text-white"
+                ? "bg-foreground text-background border-foreground"
+                : "text-muted border-border hover:border-blue-500/30 hover:text-foreground"
             )}
           >
             All
@@ -65,8 +65,8 @@ const Projects = ({ limit }: { limit?: number }) => {
               className={clsx(
                 "px-6 py-2 rounded-full text-sm font-black transition-all duration-300 uppercase tracking-widest border",
                 activeCategory === cat
-                  ? "bg-white text-black border-white"
-                  : "text-zinc-500 border-white/10 hover:border-white/30 hover:text-white"
+                  ? "bg-foreground text-background border-foreground"
+                  : "text-muted border-border hover:border-blue-500/30 hover:text-foreground"
               )}
             >
               {cat}
@@ -82,30 +82,30 @@ const Projects = ({ limit }: { limit?: number }) => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="rounded-3xl p-4 border border-white/5 bg-white/[0.02] hover:border-blue-500/30 hover:bg-white/[0.04] transition-all duration-500 text-left flex flex-col h-full group"
+              className="rounded-3xl p-4 border border-border bg-card hover:border-blue-500/30 hover:bg-card-strong transition-all duration-500 text-left flex flex-col h-full group"
             >
-              <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-blue-500 transition-colors">{project.name}</h3>
-              <p className="text-base text-zinc-400 mb-6 flex-grow leading-relaxed">
+              <h3 className="text-2xl font-bold mb-3 text-foreground group-hover:text-blue-500 transition-colors">{project.name}</h3>
+              <p className="text-base text-muted mb-6 flex-grow leading-relaxed">
                 {project.description || "Building the future of digital experiences."}
               </p>
               <div className="flex flex-wrap gap-1 text-xs mb-4">
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-zinc-300 font-semibold tracking-tight"
+                    className="bg-card border border-border px-3 py-1 rounded-lg text-muted font-semibold tracking-tight"
                   >
                     {t}
                   </span>
                 ))}
               </div>
 
-              <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+              <div className="flex items-center justify-between mt-auto pt-4 border-t border-border">
                 {project.github && (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-zinc-500 hover:text-white transition-colors font-bold"
+                    className="flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors font-bold"
                   >
                     <Github size={18} /> Source
                   </a>
@@ -115,7 +115,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-black text-blue-500 hover:text-blue-400 transition-colors uppercase tracking-widest"
+                    className="text-sm font-black text-blue-600 dark:text-blue-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors uppercase tracking-widest"
                   >
                     Live Demo →
                   </a>
@@ -129,7 +129,7 @@ const Projects = ({ limit }: { limit?: number }) => {
           <div className="mt-16 flex justify-center">
             <a
               href="/projects"
-              className="px-8 py-3.5 rounded-full border border-white/10 text-white font-black text-base transition-all duration-300 hover:bg-white/5 hover:border-white/30 flex items-center gap-2 group"
+              className="px-8 py-3.5 rounded-full border border-border text-foreground font-black text-base transition-all duration-300 hover:bg-card hover:border-blue-500/30 flex items-center gap-2 group"
             >
               View More Projects
               <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

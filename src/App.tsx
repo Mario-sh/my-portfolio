@@ -10,10 +10,13 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import { useTheme } from "./hooks/useTheme";
 
 import { Routes, Route } from "react-router-dom";
 
 const App = () => {
+  const { theme, toggleTheme } = useTheme();
+
   const [terminalMode, setTerminalMode] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("terminal-mode") === "true";
@@ -27,9 +30,14 @@ const App = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#050505] text-white relative">
+    <div className="w-full min-h-screen bg-background text-foreground relative">
       <GlobalBackground />
-      <Navbar terminalMode={terminalMode} setTerminalMode={handleTerminalToggle} />
+      <Navbar
+        terminalMode={terminalMode}
+        setTerminalMode={handleTerminalToggle}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
 
       <ErrorBoundary>
         {!terminalMode ? (
@@ -39,11 +47,11 @@ const App = () => {
                 path="/"
                 element={
                   <>
-                    <section id="home"><Hero /></section>
-                    <section id="about"><About /></section>
-                    <section id="projects"><Projects limit={4} /></section>
-                    <section id="skills"><Skills /></section>
-                    <section id="contact"><Contact /></section>
+                    <Hero />
+                    <About />
+                    <Projects limit={4} />
+                    <Skills />
+                    <Contact />
                     <BottomNavBar />
                   </>
                 }
@@ -54,7 +62,7 @@ const App = () => {
                   <div>
                     <Projects />
                     <div className="flex justify-center pb-24">
-                      <a href="/" className="px-8 py-4 rounded-full border border-white/10 text-zinc-400 font-bold hover:bg-white/5 hover:text-white transition-all">
+                      <a href="/" className="px-8 py-4 rounded-full border border-border text-muted font-bold hover:bg-card hover:text-foreground transition-all">
                         ← Retour à l'accueil
                       </a>
                     </div>

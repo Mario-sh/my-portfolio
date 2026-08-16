@@ -3,12 +3,7 @@ import { Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { personalInfo, contactItems } from "../data/userData";
 
-type HeroProps = {
-  onTabChange?: (tab: string) => void;
-  uiType?: "landing" | "modular";
-};
-
-const Hero = ({ onTabChange, uiType }: HeroProps) => {
+const Hero = () => {
   return (
     <motion.section
       id="home"
@@ -19,7 +14,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
     >
       {/* Background Branding */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 opacity-70">
-        <span className="text-[18rem] md:text-[28rem] font-black text-white/[0.09] select-none tracking-[-0.07em]">
+        <span className="text-[18rem] md:text-[28rem] font-black text-foreground/[0.06] select-none tracking-[-0.07em]">
           {personalInfo.shortAlias}
         </span>
       </div>
@@ -46,10 +41,10 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "circOut" }}
-            className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white"
+            className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-foreground"
           >
             <span className="block">{personalInfo.name}</span>
-            <span className="block text-zinc-500 text-3xl sm:text-5xl lg:text-7xl">
+            <span className="block text-muted text-3xl sm:text-5xl lg:text-7xl">
               {personalInfo.role}
             </span>
           </motion.h1>
@@ -59,7 +54,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-zinc-400 leading-relaxed max-w-lg"
+            className="text-lg md:text-xl text-muted leading-relaxed max-w-lg"
           >
             {personalInfo.aboutText}
           </motion.p>
@@ -76,15 +71,10 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             <a
               href="#projects"
               onClick={(e) => {
-                if (uiType === "modular" && onTabChange) {
-                  e.preventDefault();
-                  onTabChange("projects");
-                } else {
-                  e.preventDefault();
-                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-                }
+                e.preventDefault();
+                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-white text-black font-black text-base hover:bg-zinc-100 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-white/10"
+              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-foreground text-background font-black text-base hover:opacity-90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl"
             >
               Selected Works
             </a>
@@ -92,13 +82,8 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             <a
               href="#contact"
               onClick={(e) => {
-                if (uiType === "modular" && onTabChange) {
-                  e.preventDefault();
-                  onTabChange("contact");
-                } else {
-                  e.preventDefault();
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                }
+                e.preventDefault();
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
               }}
               className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20"
             >
@@ -109,7 +94,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
 
           {/* Social Icons */}
           <div className="flex items-center gap-6 sm:gap-5 pt-2 sm:pt-0">
-            <div className="h-5 w-px bg-white/10 hidden sm:block" />
+            <div className="h-5 w-px bg-border hidden sm:block" />
             {contactItems
               .filter((i) => ["GitHub", "LinkedIn", "X", "Discord"].includes(i.label))
               .map((item, idx) => (
@@ -118,7 +103,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-500 hover:text-white transition-all hover:scale-110 active:scale-95"
+                  className="text-muted hover:text-foreground transition-all hover:scale-110 active:scale-95"
                   title={item.label}
                 >
                   <item.icon size={26} strokeWidth={2.2} />
@@ -141,7 +126,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
           <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-blue-500/60 z-20 transition-transform group-hover:-rotate-12" />
 
           {/* Avatar Container */}
-          <div className="relative w-[300px] md:w-[340px] lg:w-[380px] aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-950">
+          <div className="relative w-[300px] md:w-[340px] lg:w-[380px] aspect-square rounded-3xl overflow-hidden border border-border shadow-2xl bg-card">
             <img
               src={personalInfo.avatarUrl}
               alt={personalInfo.name}
@@ -149,10 +134,10 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             />
 
             {/* Overlay Effects */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-black/30 group-hover:via-transparent transition-all duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-background/30 group-hover:via-transparent transition-all duration-700" />
 
             {/* Scan Line */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent h-[3px] w-full -translate-y-full group-hover:animate-[scan_3.5s_linear_infinite] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-foreground/10 to-transparent h-[3px] w-full -translate-y-full group-hover:animate-[scan_3.5s_linear_infinite] pointer-events-none" />
           </div>
 
           {/* Glow */}

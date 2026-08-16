@@ -7,6 +7,11 @@ const config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: "var(--primary)",
+        muted: "var(--muted)",
+        faint: "var(--faint)",
+        border: "var(--border)",
+        card: "var(--card)",
+        "card-strong": "var(--card-strong)",
       },
       keyframes: {
         blink: {

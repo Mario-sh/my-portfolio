@@ -1,23 +1,24 @@
 const GlobalBackground = () => {
   return (
-    <div className="fixed inset-0 z-0 bg-[#050505] pointer-events-none overflow-hidden">
+    <div className="fixed inset-0 z-0 bg-background pointer-events-none overflow-hidden transition-colors duration-500">
       {/* Technical Grid Overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]" 
-        style={{ 
-          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
-          backgroundSize: '40px 40px' 
-        }} 
+      <div
+        className="absolute inset-0 opacity-[0.025] dark:opacity-[0.035]"
+        style={{
+          backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
+          backgroundSize: '44px 44px',
+          color: 'var(--foreground)',
+        }}
       />
-      
+
       {/* Central Atmosphere Glow */}
-      <div className="absolute top-1/2 left-1/2 w-[60%] h-[60%] bg-blue-600/15 blur-[120px] rounded-full animate-pulse-slow" />
-      
+      <div className="absolute top-1/2 left-1/2 w-[55%] h-[55%] bg-blue-500/[0.06] dark:bg-blue-600/[0.15] blur-[130px] rounded-full animate-pulse-slow" />
+
       {/* Radial Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-black/40 to-black opacity-90" />
-      
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-white/60 to-white dark:via-black/40 dark:to-black opacity-90 dark:opacity-90" />
+
       {/* Noise Texture */}
-      <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <div className="absolute inset-0 opacity-[0.015] dark:opacity-[0.02] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
     </div>
   );
 };
