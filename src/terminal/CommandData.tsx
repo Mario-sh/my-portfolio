@@ -140,7 +140,7 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
   ),
   contact: (
     <>
-      {contactItems.map(({ icon: Icon, label, value, href, color }, index) => (
+      {contactItems.map(({ icon: Icon, value, href, color }, index) => (
         <div key={index} className="flex items-center gap-2">
           <Icon className={color} />
           <span>
@@ -167,7 +167,6 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
         <li>skills</li>
         <li>contact</li>
         <li>glow on/off</li>
-        <li>settings ui landing/modular</li>
         <li className="text-blue-500 cursor-pointer hover:underline" onClick={() => setTerminalMode(false)}>gui</li>
         <li>clear</li>
         <li>help</li>

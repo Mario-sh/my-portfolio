@@ -13,10 +13,9 @@ type Line = {
 
 type Props = {
   setTerminalMode: (v: boolean) => void;
-  setUiType: (v: "landing" | "modular") => void;
 };
 
-const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
+const TerminalMode = ({ setTerminalMode }: Props) => {
   const [history, setHistory] = useState<Line[]>([]);
   const [input, setInput] = useState("");
   const [glow, setGlow] = useState(false);
@@ -34,7 +33,7 @@ const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
     }
     return [];
   });
-  const [historyIndex, setHistoryIndex] = useState<number | null>(null);
+  const [, setHistoryIndex] = useState<number | null>(null);
   const [cursorPos, setCursorPos] = useState(0);
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -70,24 +69,6 @@ const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
     if (trimmed === "gui" || trimmed === "gui on" || trimmed === "exit") {
       pushLine({ text: "Switching to GUI mode...", type: "info" });
       setTimeout(() => setTerminalMode(false), 500);
-      return;
-    }
-
-    if (trimmed.startsWith("settings")) {
-      const args = trimmed.split(" ");
-      const setting = args[1];
-      const value = args[2];
-
-      if (setting === "ui") {
-        if (value === "landing" || value === "modular") {
-          setUiType(value);
-          pushLine({ text: `UI set to ${value}`, type: "success" });
-        } else {
-          pushLine({ text: "❌ Invalid UI type. Use 'landing' or 'modular'.", type: "error" });
-        }
-      } else {
-        pushLine({ text: "Available settings: ui [landing|modular]", type: "info" });
-      }
       return;
     }
 

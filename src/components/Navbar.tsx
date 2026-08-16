@@ -1,34 +1,23 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Terminal, Code2, Github, Star } from "lucide-react";
+import { Terminal, Code2, Github } from "lucide-react";
+import { contactItems } from "../data/userData";
+
+const githubUrl = contactItems.find((i) => i.label === "GitHub")?.href ?? "#";
 
 type Props = {
   terminalMode: boolean;
   setTerminalMode: (v: boolean) => void;
-  uiType?: "landing" | "modular";
-  setUiType?: (v: "landing" | "modular") => void;
 };
 
-const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => {
-  const [stars, setStars] = useState<number | null>(null);
+const Navbar = ({ terminalMode, setTerminalMode }: Props) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    fetch("https://api.github.com/repos/aj-seven/aj-seven.me")
-      .then((res) => res.json())
-      .then((data) => {
-        if (typeof data.stargazers_count === "number") {
-          setStars(data.stargazers_count);
-        }
-      })
-      .catch((err) => console.error("Failed to fetch repo stars", err));
   }, []);
 
   return (
@@ -75,35 +64,13 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
 
           {/* Controls */}
           <div className="flex items-center gap-2">
-            {/* UI Toggle (Mini) */}
-            {/* {setUiType && (
-              <button
-                onClick={() => setUiType(uiType === "landing" ? "modular" : "landing")}
-                className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-all text-[10px] font-black uppercase tracking-widest text-zinc-400 hover:text-white"
-                title={`Switch to ${uiType === "landing" ? "Modular" : "Landing"} UI`}
-              >
-                {uiType === "landing" ? (
-                  <><LayoutGrid size={12} /> Modular</>
-                ) : (
-                  <><ScrollText size={12} /> Landing</>
-                )}
-              </button>
-            )}
-
-            <div className="h-4 w-px bg-white/10 mx-1 hidden sm:block" /> */}
-
             <a
-              href="https://github.com/aj-seven/aj-seven.me"
+              href={githubUrl}
               target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-all group"
             >
               <Github size={22} className="text-zinc-400 group-hover:text-white transition-colors" />
-              {stars !== null && (
-                <span className="flex items-center text-base font-black text-zinc-500 group-hover:text-white transition-colors">
-                  <Star size={18} className="text-yellow-500 fill-yellow-500 mr-1" />
-                  {stars}
-                </span>
-              )}
             </a>
 
             <button

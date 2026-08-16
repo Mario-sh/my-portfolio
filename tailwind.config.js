@@ -8,10 +8,6 @@ const config = {
         foreground: "var(--foreground)",
         primary: "var(--primary)",
       },
-      animation: {
-        blink: "blink 1s step-start infinite",
-        typing: "typing 0.8s steps(40, end)",
-      },
       keyframes: {
         blink: {
           "50%": { opacity: "0" },
@@ -34,7 +30,7 @@ const config = {
           "0%": { transform: "translate(0, 0)" },
           "100%": { transform: "translate(-20px, -20px)" },
         },
-        star: {
+        starGlow: {
           "0%": { transform: "rotate(-12deg)" },
           "50%": { transform: "rotate(12deg)" },
         },

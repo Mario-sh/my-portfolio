@@ -1,5 +1,3 @@
-import React from 'react';
-
 const XIcon = ({ size = 24, color = "currentColor", className, ...props }: any) => {
   const { strokeWidth, ...rest } = props;
   return (
