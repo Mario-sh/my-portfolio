@@ -14,17 +14,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Light theme (default) — dominant white, blue accent */
+/* Light theme (default) — fond gris-bleu doux, cartes blanches qui se détachent, accent bleu */
 :root {
   color-scheme: light;
-  --background: #ffffff;
-  --foreground: #0d0f12;
-  --muted: #5b5f68;
-  --faint: #8a8d96;
-  --border: #e6e7eb;
-  --card: #f6f6f8;
-  --card-strong: #eceef2;
-  --primary: #2f5fdb;
+  --background: #f2f4f7;
+  --foreground: #131620;
+  --muted: #52576a;
+  --faint: #8b90a0;
+  --border: #dfe2e9;
+  --card: #ffffff;
+  --card-strong: #eef1f6;
+  --primary: #2952d6;
   --ring: var(--primary);
 }
 
