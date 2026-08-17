@@ -34,6 +34,7 @@ export const translations: Record<
     skills: {
       heading: string;
       subheading: string;
+      categories: { languages: string; frameworks: string; data: string; devops: string; ai: string; tools: string };
     };
     projects: {
       heading: string;
@@ -43,6 +44,7 @@ export const translations: Record<
       liveDemo: string;
       viewMore: string;
       fallbackDescription: string;
+      categories: { web: string; hackathon: string; university: string };
     };
     contact: {
       heading: string;
@@ -105,6 +107,7 @@ export const translations: Record<
     skills: {
       heading: "Ma Stack",
       subheading: "Une sélection des technologies que j'utilise pour construire des produits performants.",
+      categories: { languages: "Langages", frameworks: "Frameworks", data: "Data", devops: "DevOps", ai: "IA", tools: "Outils" },
     },
     projects: {
       heading: "Projets phares",
@@ -114,6 +117,7 @@ export const translations: Record<
       liveDemo: "Voir le site",
       viewMore: "Voir plus de projets",
       fallbackDescription: "Construire les produits numériques de demain.",
+      categories: { web: "Web", hackathon: "Hackathon", university: "Université" },
     },
     contact: {
       heading: "Discutons",
@@ -175,12 +179,14 @@ export const translations: Record<
     skills: {
       heading: "My Stack",
       subheading: "A curated selection of technologies I use to build high-performance products.",
+      categories: { languages: "Languages", frameworks: "Frameworks", data: "Data", devops: "DevOps", ai: "AI", tools: "Tools" },
     },
     projects: {
       heading: "Featured Projects",
       subheading: "A look at my most meaningful work, from web applications to creative experiments.",
       filterAll: "All",
       source: "Source",
+      categories: { web: "Web", hackathon: "Hackathon", university: "University" },
       liveDemo: "Live Demo",
       viewMore: "View More Projects",
       fallbackDescription: "Building the future of digital experiences.",

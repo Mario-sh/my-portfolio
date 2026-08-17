@@ -1,13 +1,16 @@
 import React from "react";
-import { ExternalLink, Github, Linkedin } from "lucide-react";
-import { contactItems, skills, projectData, personalInfo } from "../data/userData";
-import type { translations } from "../i18n/translations";
+import { ExternalLink, Github, Linkedin, Zap, Sparkles, Code2 } from "lucide-react";
+import { contactItems, skills, personalInfo } from "../data/userData";
+import { projectContent } from "../i18n/content";
+import type { translations, Lang } from "../i18n/translations";
 
 type T = (typeof translations)["fr"];
+const fallbackIcons = { zap: Zap, sparkles: Sparkles, code: Code2 };
 
 export const getCommandData = (
   setTerminalMode: (v: boolean) => void,
-  t: T
+  t: T,
+  lang: Lang
 ): Record<string, React.ReactNode> => ({
   whoami: (
     <>
@@ -75,19 +78,19 @@ export const getCommandData = (
   projects: (
     <>
       <div className="grid gap-4 md:grid-cols-2 max-w-6xl mx-auto">
-        {projectData.map((project, index) => (
+        {projectContent[lang].map((project, index) => (
           <div key={index} className="rounded-xl p-6 bg-white/20 dark:bg-black/30 shadow-xs border border-gray-300 dark:border-gray-800 text-left transition">
             <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
             <p className="text-sm text-muted-foreground mb-4">
               {project.description || t.projects.fallbackDescription}
             </p>
             <div className="flex flex-wrap gap-2 text-xs mb-4">
-              {project.tech.map((t) => (
+              {project.tech.map((tech) => (
                 <span
-                  key={t}
+                  key={tech}
                   className="bg-muted border border-gray-400 dark:border-gray-600 px-2 py-1 rounded-full text-foreground/80"
                 >
-                  {t}
+                  {tech}
                 </span>
               ))}
             </div>
@@ -126,21 +129,28 @@ export const getCommandData = (
       </div>
       {skills.map((categoryGroup, index) => (
         <div key={index} className="pl-2 border-l-2 border-gray-600">
-          <div className="text-primary font-bold mb-3">{categoryGroup.category}</div>
+          <div className="text-primary font-bold mb-3">{t.skills.categories[categoryGroup.categoryKey]}</div>
           <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-accent">
-            {categoryGroup.items.map((item, idx) => (
-              <li key={idx} className="flex items-center gap-2">
-                <div className="p-1 rounded-md bg-white/20 dark:bg-black/30 flex items-center justify-center">
-                  <img
-                    src={item.icon}
-                    alt={item.name}
-                    className={`w-4 h-4 object-contain ${item.invertDark ? "dark:invert" : ""
-                      }`}
-                  />
-                </div>
-                <span className="font-medium">{item.name}</span>
-              </li>
-            ))}
+            {categoryGroup.items.map((item, idx) => {
+              const Fallback = item.fallback ? fallbackIcons[item.fallback] : null;
+              return (
+                <li key={idx} className="flex items-center gap-2">
+                  <div className="p-1 rounded-md bg-white/20 dark:bg-black/30 flex items-center justify-center">
+                    {Fallback ? (
+                      <Fallback size={16} />
+                    ) : (
+                      <img
+                        src={"icon" in item ? item.icon : undefined}
+                        alt={item.name}
+                        className={`w-4 h-4 object-contain ${"invertDark" in item && item.invertDark ? "dark:invert" : ""
+                          }`}
+                      />
+                    )}
+                  </div>
+                  <span className="font-medium">{item.name}</span>
+                </li>
+              );
+            })}
           </ul>
         </div>
       ))}

@@ -1,14 +1,16 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { timeline, personalInfo } from "../data/userData";
+import { personalInfo } from "../data/userData";
+import { timelineContent } from "../i18n/content";
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const About = () => {
   const [expandedIds, setExpandedIds] = useState<Record<number, boolean>>({});
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const timeline = timelineContent[lang];
 
   const toggleExpand = (index: number) => {
     setExpandedIds((prev) => ({ ...prev, [index]: !prev[index] }));

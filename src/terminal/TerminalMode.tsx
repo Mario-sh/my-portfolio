@@ -20,8 +20,8 @@ const TerminalMode = ({ setTerminalMode }: Props) => {
   const [history, setHistory] = useState<Line[]>([]);
   const [input, setInput] = useState("");
   const [glow, setGlow] = useState(false);
-  const { t } = useLanguage();
-  const commandData = getCommandData(setTerminalMode, t);
+  const { t, lang } = useLanguage();
+  const commandData = getCommandData(setTerminalMode, t, lang);
   const [commandHistory, setCommandHistory] = useState<string[]>(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("terminalHistory");

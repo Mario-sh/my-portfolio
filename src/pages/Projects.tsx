@@ -4,14 +4,15 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Github, ArrowUpRight } from "lucide-react";
 import clsx from "clsx";
-import { projectData } from "../data/userData";
+import { projectContent, type ProjectEntry } from "../i18n/content";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const categories = Array.from(new Set(projectData.map((p) => p.category)));
+const categories = Array.from(new Set(projectContent.fr.map((p) => p.category))) as ProjectEntry["category"][];
 
 const Projects = ({ limit }: { limit?: number }) => {
-  const { t } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState("all");
+  const { t, lang } = useLanguage();
+  const [activeCategory, setActiveCategory] = useState<"all" | ProjectEntry["category"]>("all");
+  const projectData = projectContent[lang];
 
   const filteredProjects = projectData.filter(
     (p) => activeCategory === "all" || p.category === activeCategory
@@ -71,7 +72,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                   : "text-muted border-border hover:border-blue-500/30 hover:text-foreground"
               )}
             >
-              {cat}
+              {t.projects.categories[cat]}
             </button>
           ))}
         </div>
