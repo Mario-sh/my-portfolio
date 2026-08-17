@@ -2,8 +2,11 @@
 import { Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { personalInfo, contactItems } from "../data/userData";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <motion.section
       id="home"
@@ -22,7 +25,10 @@ const Hero = () => {
             transition={{ delay: 0.1, duration: 0.8, ease: "circOut" }}
             className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-foreground"
           >
-            <span className="block">{personalInfo.name}</span>
+            <span className="block">
+              <span className="sm:hidden">{t.hero.intro}</span>
+              {personalInfo.name}
+            </span>
             <span className="block text-muted text-2xl sm:text-4xl lg:text-6xl leading-[1.15] font-bold">
               {personalInfo.role}
             </span>
@@ -35,7 +41,7 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-lg md:text-xl text-muted leading-relaxed max-w-lg"
           >
-            {personalInfo.aboutText}
+            {t.hero.bio}
           </motion.p>
         </div>
 
@@ -55,7 +61,7 @@ const Hero = () => {
               }}
               className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-foreground text-background font-black text-base hover:opacity-90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl whitespace-nowrap"
             >
-              Selected Works
+              {t.hero.ctaWork}
             </a>
 
             <a
@@ -66,7 +72,7 @@ const Hero = () => {
               }}
               className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20 whitespace-nowrap"
             >
-              Start a Conversation
+              {t.hero.ctaContact}
               <Send className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={18} />
             </a>
           </div>
@@ -105,11 +111,14 @@ const Hero = () => {
 
           {/* Avatar Container */}
           <div className="relative w-[300px] md:w-[340px] lg:w-[380px] aspect-square rounded-3xl overflow-hidden border border-border shadow-2xl bg-card">
-            <img
-              src={personalInfo.avatarUrl}
-              alt={personalInfo.name}
-              className="w-full h-full object-cover scale-105 group-hover:scale-100 grayscale group-hover:grayscale-0 transition-all duration-700"
-            />
+            <picture>
+              <source srcSet={personalInfo.avatarWebpUrl} type="image/webp" />
+              <img
+                src={personalInfo.avatarUrl}
+                alt={personalInfo.name}
+                className="w-full h-full object-cover scale-105 group-hover:scale-100 grayscale group-hover:grayscale-0 transition-all duration-700"
+              />
+            </picture>
 
             {/* Overlay Effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-background/30 group-hover:via-transparent transition-all duration-700" />

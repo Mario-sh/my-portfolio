@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 import { Github, ArrowUpRight } from "lucide-react";
 import clsx from "clsx";
 import { projectData } from "../data/userData";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const categories = Array.from(new Set(projectData.map((p) => p.category)));
 
 const Projects = ({ limit }: { limit?: number }) => {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("all");
 
   const filteredProjects = projectData.filter(
@@ -33,7 +35,7 @@ const Projects = ({ limit }: { limit?: number }) => {
             transition={{ duration: 0.5 }}
             className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-foreground tracking-tighter"
           >
-            Featured Projects
+            {t.projects.heading}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -41,7 +43,7 @@ const Projects = ({ limit }: { limit?: number }) => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-base md:text-lg lg:text-xl text-muted max-w-2xl mx-auto font-medium"
           >
-            A collection of my most impactful work, from web applications to creative experiments.
+            {t.projects.subheading}
           </motion.p>
         </div>
 
@@ -56,7 +58,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                 : "text-muted border-border hover:border-blue-500/30 hover:text-foreground"
             )}
           >
-            All
+            {t.projects.filterAll}
           </button>
           {categories.map((cat) => (
             <button
@@ -86,15 +88,15 @@ const Projects = ({ limit }: { limit?: number }) => {
             >
               <h3 className="text-2xl font-bold mb-3 text-foreground group-hover:text-blue-500 transition-colors">{project.name}</h3>
               <p className="text-base text-muted mb-6 flex-grow leading-relaxed">
-                {project.description || "Building the future of digital experiences."}
+                {project.description || t.projects.fallbackDescription}
               </p>
               <div className="flex flex-wrap gap-1.5 mb-4">
-                {project.tech.map((t) => (
+                {project.tech.map((tech) => (
                   <span
-                    key={t}
+                    key={tech}
                     className="bg-card border border-border px-2.5 py-1 rounded-lg font-mono text-[11px] text-muted font-medium"
                   >
-                    {t}
+                    {tech}
                   </span>
                 ))}
               </div>
@@ -107,7 +109,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors font-bold"
                   >
-                    <Github size={18} /> Source
+                    <Github size={18} /> {t.projects.source}
                   </a>
                 )}
                 {project.live && (
@@ -117,7 +119,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                     rel="noopener noreferrer"
                     className="font-mono text-xs font-semibold text-blue-600 dark:text-blue-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors uppercase tracking-widest"
                   >
-                    Live Demo →
+                    {t.projects.liveDemo} →
                   </a>
                 )}
               </div>
@@ -131,7 +133,7 @@ const Projects = ({ limit }: { limit?: number }) => {
               href="/projects"
               className="px-8 py-3.5 rounded-full border border-border text-foreground font-black text-base transition-all duration-300 hover:bg-card hover:border-blue-500/30 flex items-center gap-2 group"
             >
-              View More Projects
+              {t.projects.viewMore}
               <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </a>
           </div>

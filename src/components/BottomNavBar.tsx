@@ -7,14 +7,15 @@ import {
   ContactRound,
   Target,
 } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const navItems = [
-  { name: "Home", id: "home", icon: HomeIcon },
-  { name: "About", id: "about", icon: Info },
-  { name: "Projects", id: "projects", icon: FolderKanban },
-  { name: "Skills", id: "skills", icon: Target },
-  { name: "Contact", id: "contact", icon: ContactRound },
-];
+  { key: "home", id: "home", icon: HomeIcon },
+  { key: "about", id: "about", icon: Info },
+  { key: "projects", id: "projects", icon: FolderKanban },
+  { key: "skills", id: "skills", icon: Target },
+  { key: "contact", id: "contact", icon: ContactRound },
+] as const;
 
 type Props = {
   forcedTab?: string;
@@ -23,6 +24,7 @@ type Props = {
 
 const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
   const [activeSection, setActiveSection] = useState("home");
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (forcedTab) {
@@ -63,6 +65,7 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
           {navItems.map((item) => {
             const isActive = item.id === activeSection;
             const Icon = item.icon;
+            const label = t.nav[item.key];
             return (
               <button
                 key={item.id}
@@ -90,7 +93,7 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
                         exit={{ width: 0, opacity: 0 }}
                         className="text-[10px] font-black uppercase tracking-widest whitespace-nowrap overflow-hidden"
                       >
-                        {item.name}
+                        {label}
                       </motion.span>
                     )}
                   </AnimatePresence>
@@ -99,7 +102,7 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
                 {/* Tooltip */}
                 {!isActive && (
                   <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-foreground text-background text-xs font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-                    {item.name}
+                    {label}
                   </span>
                 )}
 

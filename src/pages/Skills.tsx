@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { skills } from "../data/userData";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const Skills = () => {
+  const { t } = useLanguage();
   return (
     <section id="skills" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10 scroll-mt-32">
       <motion.div
@@ -20,7 +22,7 @@ const Skills = () => {
             transition={{ duration: 0.5 }}
             className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-foreground tracking-tighter"
           >
-            My Stack
+            {t.skills.heading}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -28,7 +30,7 @@ const Skills = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-base md:text-lg lg:text-xl text-muted max-w-2xl mx-auto font-medium"
           >
-            A curated selection of technologies I use to build high-performance products.
+            {t.skills.subheading}
           </motion.p>
         </div>
 

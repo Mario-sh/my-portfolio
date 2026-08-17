@@ -11,11 +11,13 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { useTheme } from "./hooks/useTheme";
+import { useLanguage } from "./i18n/LanguageContext";
 
 import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useLanguage();
 
   const [terminalMode, setTerminalMode] = useState(() => {
     if (typeof window !== "undefined") {
@@ -63,7 +65,7 @@ const App = () => {
                     <Projects />
                     <div className="flex justify-center pb-24">
                       <a href="/" className="px-8 py-4 rounded-full border border-border text-muted font-bold hover:bg-card hover:text-foreground transition-all">
-                        ← Retour à l'accueil
+                        ← {t.nav.backHome}
                       </a>
                     </div>
                   </div>

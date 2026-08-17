@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { contactItems, resume } from "../data/userData";
 import { ArrowUpRight } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const Contact = () => {
+  const { t, lang } = useLanguage();
+
   return (
     <section id="contact" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-48 min-h-screen text-foreground relative z-10 scroll-mt-32">
       <motion.div
@@ -19,7 +22,7 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
             className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-foreground tracking-tighter"
           >
-            Get In Touch
+            {t.contact.heading}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -27,7 +30,7 @@ const Contact = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-base md:text-lg lg:text-xl text-muted max-w-2xl mx-auto font-medium"
           >
-            Let's build something great together. I'm always open to new opportunities and collaborations.
+            {t.contact.subheading}
           </motion.p>
         </div>
 
@@ -40,11 +43,13 @@ const Contact = () => {
             className="text-left space-y-4"
           >
             <h3 className="text-3xl md:text-5xl font-black leading-tight text-foreground tracking-tighter">
-              Let’s build <span className="text-blue-600 dark:text-blue-500 text-glow">better</span> products.
+              {t.contact.headlineStart}
+              <span className="text-blue-600 dark:text-blue-500 text-glow">{t.contact.headlineAccent}</span>
+              {t.contact.headlineEnd}
             </h3>
 
             <p className="text-lg md:text-2xl text-muted font-medium max-w-md leading-relaxed">
-              Open for interesting opportunities or just a meaningful chat.
+              {t.contact.body}
             </p>
 
             {/* CTA BUTTONS */}
@@ -53,15 +58,15 @@ const Contact = () => {
                 href="mailto:ajseven@outlook.in"
                 className="px-6 py-3.5 rounded-full bg-foreground text-background font-black text-base transition-all duration-300 hover:opacity-90 hover:-translate-y-1 flex items-center gap-2 group"
               >
-                Start a Conversation
+                {t.contact.ctaContact}
               </a>
               <a
-                href={resume["full-stack-developer"]}
+                href={resume[lang]}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3.5 text-foreground border border-border rounded-full font-black text-base hover:bg-card hover:-translate-y-1 transition-all duration-300"
               >
-                Resume <ArrowUpRight size={18} />
+                {t.contact.ctaResume} <ArrowUpRight size={18} />
               </a>
             </div>
           </motion.div>

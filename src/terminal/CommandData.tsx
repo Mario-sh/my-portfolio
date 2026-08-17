@@ -1,8 +1,14 @@
 import React from "react";
 import { ExternalLink, Github, Linkedin } from "lucide-react";
 import { contactItems, skills, projectData, personalInfo } from "../data/userData";
+import type { translations } from "../i18n/translations";
 
-export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<string, React.ReactNode> => ({
+type T = (typeof translations)["fr"];
+
+export const getCommandData = (
+  setTerminalMode: (v: boolean) => void,
+  t: T
+): Record<string, React.ReactNode> => ({
   whoami: (
     <>
       <div>Welcome, Guest 👋</div>
@@ -51,7 +57,7 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
         </div>{" "}
       </div>
       <div>
-        {personalInfo.aboutText1}
+        {t.about.bioBefore}
         {personalInfo.collegeUrl ? (
           <a
             href={personalInfo.collegeUrl}
@@ -64,7 +70,7 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
         ) : (
           <span className="font-bold">{personalInfo.college}</span>
         )}
-        {personalInfo.aboutText2}
+        {t.about.bioAfter}
       </div>
     </div>
   ),
@@ -75,7 +81,7 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
           <div key={index} className="rounded-xl p-6 bg-white/20 dark:bg-black/30 shadow-xs border border-gray-300 dark:border-gray-800 text-left transition">
             <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
             <p className="text-sm text-muted-foreground mb-4">
-              {project.description || "No description provided."}
+              {project.description || t.projects.fallbackDescription}
             </p>
             <div className="flex flex-wrap gap-2 text-xs mb-4">
               {project.tech.map((t) => (
@@ -96,7 +102,7 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 text-sm text-muted-foreground hover:underline"
                 >
-                  <Github size={16} /> GitHub
+                  <Github size={16} /> {t.projects.source}
                 </a>
               )}
               {project.live && (
@@ -106,7 +112,7 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 text-sm text-primary hover:underline"
                 >
-                  <ExternalLink size={16} /> Live Demo
+                  <ExternalLink size={16} /> {t.projects.liveDemo}
                 </a>
               )}
             </div>
@@ -118,7 +124,7 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
   skills: (
     <div className="flex flex-col gap-4">
       <div>
-        🚀 <span className="font-semibold">Skills:</span>
+        🚀 <span className="font-semibold">{t.skills.heading}:</span>
       </div>
       {skills.map((categoryGroup, index) => (
         <div key={index} className="pl-2 border-l-2 border-gray-600">

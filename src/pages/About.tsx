@@ -1,12 +1,14 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { facts, timeline, personalInfo } from "../data/userData";
+import { timeline, personalInfo } from "../data/userData";
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const About = () => {
   const [expandedIds, setExpandedIds] = useState<Record<number, boolean>>({});
+  const { t } = useLanguage();
 
   const toggleExpand = (index: number) => {
     setExpandedIds((prev) => ({ ...prev, [index]: !prev[index] }));
@@ -28,7 +30,7 @@ const About = () => {
             transition={{ duration: 0.5 }}
             className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-foreground tracking-tighter"
           >
-            Who Am I
+            {t.about.heading}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -36,7 +38,7 @@ const About = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-base md:text-lg lg:text-xl text-muted max-w-2xl mx-auto font-medium"
           >
-            A chronological journey through professional evolution and engineering milestones.
+            {t.about.subheading}
           </motion.p>
         </div>
 
@@ -49,7 +51,7 @@ const About = () => {
               transition={{ delay: 0.1, duration: 0.6 }}
               className="text-base md:text-xl lg:text-2xl text-muted leading-relaxed font-medium"
             >
-              {personalInfo.aboutText1}
+              {t.about.bioBefore}
               {personalInfo.collegeUrl ? (
                 <a
                   href={personalInfo.collegeUrl}
@@ -62,14 +64,14 @@ const About = () => {
               ) : (
                 <span className="text-foreground font-bold">{personalInfo.college}</span>
               )}
-              {personalInfo.aboutText2}
+              {t.about.bioAfter}
             </motion.p>
           </div>
 
           <div className="lg:col-span-2 flex flex-wrap gap-2">
-            {facts.map((fact, i) => (
+            {t.about.facts.map((fact, i) => (
               <motion.div
-                key={i}
+                key={fact}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
@@ -84,7 +86,7 @@ const About = () => {
         {/* Timeline Header */}
         <div className="flex flex-col items-center mb-12 text-center">
           <h3 className="font-mono text-sm font-semibold text-blue-600 uppercase tracking-[0.3em]">
-            Timeline
+            {t.about.timelineEyebrow}
           </h3>
           <div className="h-px w-24 bg-blue-600/30" />
         </div>
@@ -134,9 +136,9 @@ const About = () => {
                         className="mt-4 flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-widest text-blue-600 hover:text-blue-400 transition-colors"
                       >
                         {expandedIds[i] ? (
-                          <><Minus size={14} /> Show Less</>
+                          <><Minus size={14} /> {t.about.showLess}</>
                         ) : (
-                          <><Plus size={14} /> Read Insight</>
+                          <><Plus size={14} /> {t.about.readMore}</>
                         )}
                       </button>
                     )}

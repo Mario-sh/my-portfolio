@@ -1,0 +1,10 @@
+# Empêche toute conversion de fin de ligne (CRLF/LF) sur les fichiers binaires.
+# Sans ça, Git peut corrompre un PDF/image en tentant de le traiter comme du texte.
+*.pdf -text binary
+*.png -text binary
+*.jpg -text binary
+*.jpeg -text binary
+*.webp -text binary
+*.ico -text binary
+*.woff -text binary
+*.woff2 -text binary

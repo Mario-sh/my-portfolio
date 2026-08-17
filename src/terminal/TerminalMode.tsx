@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { getCommandData } from "./CommandData";
 import { isGlowCommand, isValidCommand } from "./data/commands";
 import { terminalThemes } from "./data/themes";
+import { useLanguage } from "../i18n/LanguageContext";
 
 type Line = {
   text?: string;
@@ -19,7 +20,8 @@ const TerminalMode = ({ setTerminalMode }: Props) => {
   const [history, setHistory] = useState<Line[]>([]);
   const [input, setInput] = useState("");
   const [glow, setGlow] = useState(false);
-  const commandData = getCommandData(setTerminalMode);
+  const { t } = useLanguage();
+  const commandData = getCommandData(setTerminalMode, t);
   const [commandHistory, setCommandHistory] = useState<string[]>(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("terminalHistory");
