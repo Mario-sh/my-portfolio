@@ -93,59 +93,65 @@ const About = () => {
           <div className="h-px w-24 bg-blue-600/30" />
         </div>
 
-        {/* Timeline Grid */}
-        <div className="max-w-3xl mx-auto text-left relative border-l border-border ml-4 md:mx-auto pl-8">
+        {/* Timeline : ligne centrale, cartes alternées gauche/droite en desktop, colonne unique en mobile */}
+        <div className="max-w-4xl mx-auto relative">
+          {/* Ligne centrale */}
+          <div className="absolute left-4 md:left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-blue-600/50 via-border to-transparent md:-translate-x-1/2" />
+
           {timeline.map((item, i) => {
             const hasMore = "more" in item && typeof item.more === "string";
+            const isLeft = i % 2 === 0;
+
+            const card = (
+              <div className="p-5 rounded-3xl border border-border bg-card hover:bg-card-strong hover:border-blue-500/20 transition-all duration-500 relative overflow-hidden">
+                <span className="inline-block mb-2 font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest">
+                  {item.year}
+                </span>
+                <p className="text-lg md:text-xl font-bold text-foreground leading-relaxed">
+                  {item.detail}
+                </p>
+
+                <AnimatePresence>
+                  {expandedIds[i] && (
+                    <motion.p
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="text-muted mt-2 text-base leading-relaxed"
+                    >
+                      {item.more}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+
+                {hasMore && (
+                  <button
+                    onClick={() => toggleExpand(i)}
+                    className="mt-4 flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-widest text-blue-600 hover:text-blue-400 transition-colors"
+                  >
+                    {expandedIds[i] ? (
+                      <><Minus size={14} /> {t.about.showLess}</>
+                    ) : (
+                      <><Plus size={14} /> {t.about.readMore}</>
+                    )}
+                  </button>
+                )}
+              </div>
+            );
 
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: isLeft ? -20 : 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="mb-10 relative group last:mb-0"
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="relative mb-8 last:mb-0 md:grid md:grid-cols-2 md:gap-x-10"
               >
-                {/* Node Dot */}
-                <span className="absolute flex h-4 w-4 rounded-full bg-background border-2 border-blue-600 -left-[41px] top-1.5 transition-all duration-500 group-hover:bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.3)]" />
+                {/* Point sur la ligne */}
+                <span className="absolute left-4 md:left-1/2 top-6 md:top-8 h-3.5 w-3.5 -translate-x-1/2 rounded-full bg-blue-600 border-2 border-background shadow-[0_0_12px_rgba(37,99,235,0.5)] z-10" />
 
-                <div className="flex flex-col gap-2">
-                  <span className="font-mono text-xs font-semibold text-muted uppercase tracking-widest">
-                    {item.year}
-                  </span>
-
-                  <div className="p-4 rounded-3xl border border-border bg-card hover:bg-card-strong hover:border-blue-500/20 transition-all duration-500 relative overflow-hidden">
-                    <p className="text-lg md:text-xl font-bold text-foreground leading-relaxed">
-                      {item.detail}
-                    </p>
-
-                    <AnimatePresence>
-                      {expandedIds[i] && (
-                        <motion.p
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="text-muted mt-2 text-base leading-relaxed"
-                        >
-                          {item.more}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-
-                    {hasMore && (
-                      <button
-                        onClick={() => toggleExpand(i)}
-                        className="mt-4 flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-widest text-blue-600 hover:text-blue-400 transition-colors"
-                      >
-                        {expandedIds[i] ? (
-                          <><Minus size={14} /> {t.about.showLess}</>
-                        ) : (
-                          <><Plus size={14} /> {t.about.readMore}</>
-                        )}
-                      </button>
-                    )}
-                  </div>
-                </div>
+                <div className="pl-12 md:pl-0 md:col-start-1">{isLeft && card}</div>
+                <div className="pl-12 md:pl-0 md:col-start-2">{!isLeft && card}</div>
               </motion.div>
             );
           })}
