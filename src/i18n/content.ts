@@ -29,6 +29,7 @@ export const timelineContent: Record<Lang, TimelineEntry[]> = {
     {
       year: "2025–2026",
       detail: "Licence 2 — Architecture Logicielle à l'ESGIS Bénin (Cotonou), validée.",
+      more: "Acquisition de bases solides en réseaux, programmation et algorithmique, ainsi qu'en architecture système et bases de données relationnelles, à travers la résolution de problèmes et des projets concrets.",
     },
     {
       year: "2025",
@@ -69,6 +70,7 @@ export const timelineContent: Record<Lang, TimelineEntry[]> = {
     {
       year: "2025–2026",
       detail: "Bachelor's Year 2 — Software Architecture at ESGIS Bénin (Cotonou), completed.",
+      more: "Built solid foundations in networking, programming, and algorithms, as well as system architecture and relational databases, through hands-on problem-solving and real projects.",
     },
     {
       year: "2025",

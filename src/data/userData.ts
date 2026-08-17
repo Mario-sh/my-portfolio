@@ -37,9 +37,10 @@ export const skills: { categoryKey: "languages" | "frameworks" | "data" | "devop
       { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript" },
       { name: "PHP", icon: "https://cdn.simpleicons.org/php" },
       { name: "Python", icon: "https://cdn.simpleicons.org/python" },
-      { name: "Java", icon: "https://cdn.simpleicons.org/openjdk" },
+      { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
       { name: "C / C++", icon: "https://cdn.simpleicons.org/cplusplus" },
       { name: "Shell", icon: "https://cdn.simpleicons.org/gnubash" },
+      { name: "Linux", icon: "https://cdn.simpleicons.org/linux", invertDark: true },
     ],
   },
   {
