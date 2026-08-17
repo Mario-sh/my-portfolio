@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 export type Theme = "light" | "dark";
 
 const getInitialTheme = (): Theme => {
-  if (typeof window === "undefined") return "dark";
+  if (typeof window === "undefined") return "light";
   const saved = localStorage.getItem("theme");
   if (saved === "light" || saved === "dark") return saved;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  // Le mode clair est le thème par défaut du site, indépendamment des préférences système.
+  return "light";
 };
 
 export const useTheme = () => {

@@ -30,10 +30,10 @@ const Navbar = ({ terminalMode, setTerminalMode, theme, toggleTheme }: Props) =>
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${terminalMode ? "py-0" : scrolled ? "py-3" : "py-4"
         }`}
     >
-      <div className={`mx-auto transition-all duration-500 ${terminalMode ? "max-w-full px-0 mt-2" : "max-w-7xl px-2 sm:px-4 lg:px-6"
+      <div className={`mx-auto transition-all duration-500 ${terminalMode ? "max-w-full px-0 mt-2" : "max-w-7xl px-1.5 sm:px-4 lg:px-6"
         }`}>
         <div
-          className={`relative flex items-center justify-between px-3 sm:px-4 transition-all duration-500 ${terminalMode
+          className={`relative flex items-center justify-between px-2 sm:px-4 transition-all duration-500 ${terminalMode
             ? "bg-black text-green-400 border-b border-green-500/30 rounded-none py-2"
             : `py-3 rounded-2xl ${scrolled
               ? "bg-background/50 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_8px_30px_-8px_rgba(0,0,0,0.25)] ring-1 ring-inset ring-white/15 dark:ring-white/10"
@@ -63,24 +63,24 @@ const Navbar = ({ terminalMode, setTerminalMode, theme, toggleTheme }: Props) =>
           </a>
 
           {/* Controls */}
-          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             <a
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 p-1.5 sm:px-3 sm:py-1.5 rounded-xl border border-border bg-card hover:bg-card-strong transition-all group"
             >
-              <Github size={18} className="text-muted group-hover:text-foreground transition-colors sm:w-[22px] sm:h-[22px]" />
+              <Github size={17} className="text-muted group-hover:text-foreground transition-colors sm:w-[22px] sm:h-[22px]" />
             </a>
 
             {!terminalMode && (
               <button
                 onClick={toggleLanguage}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 h-[34px] sm:h-[38px] rounded-xl border border-border bg-card text-muted hover:text-foreground hover:border-blue-500/30 transition-all duration-300"
+                className="flex items-center gap-1 px-1.5 sm:px-3 h-[32px] sm:h-[38px] rounded-xl border border-border bg-card text-muted hover:text-foreground hover:border-blue-500/30 transition-all duration-300"
                 title={t.nav.toggleLanguage}
               >
-                <Languages size={16} className="sm:w-[18px] sm:h-[18px]" />
-                <span className="font-mono text-xs font-semibold uppercase">{lang}</span>
+                <Languages size={15} className="sm:w-[18px] sm:h-[18px]" />
+                <span className="font-mono text-[10px] sm:text-xs font-semibold uppercase">{lang}</span>
               </button>
             )}
 
@@ -90,7 +90,7 @@ const Navbar = ({ terminalMode, setTerminalMode, theme, toggleTheme }: Props) =>
                 className="p-1.5 sm:p-2 rounded-xl border border-border bg-card text-muted hover:text-foreground hover:border-blue-500/30 transition-all duration-300"
                 title={theme === "dark" ? t.nav.themeToLight : t.nav.themeToDark}
               >
-                {theme === "dark" ? <Sun size={18} className="sm:w-[22px] sm:h-[22px]" /> : <Moon size={18} className="sm:w-[22px] sm:h-[22px]" />}
+                {theme === "dark" ? <Sun size={17} className="sm:w-[22px] sm:h-[22px]" /> : <Moon size={17} className="sm:w-[22px] sm:h-[22px]" />}
               </button>
             )}
 
@@ -102,7 +102,7 @@ const Navbar = ({ terminalMode, setTerminalMode, theme, toggleTheme }: Props) =>
                 }`}
               title={t.nav.toggleTerminal}
             >
-              <Terminal size={18} className="sm:w-[22px] sm:h-[22px]" />
+              <Terminal size={17} className="sm:w-[22px] sm:h-[22px]" />
             </button>
           </div>
         </div>
