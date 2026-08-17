@@ -10,10 +10,10 @@ import { useLanguage } from "../i18n/LanguageContext";
 const categories = Array.from(new Set(projectContent.fr.map((p) => p.category))) as ProjectEntry["category"][];
 
 // Classes écrites en toutes lettres (pas de template interpolé) pour que Tailwind les détecte au build.
-const categoryStyle: Record<ProjectEntry["category"], { icon: typeof Globe; badge: string }> = {
-  web: { icon: Globe, badge: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20" },
-  hackathon: { icon: Trophy, badge: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20" },
-  university: { icon: GraduationCap, badge: "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20" },
+const categoryStyle: Record<ProjectEntry["category"], { icon: typeof Globe; badge: string; cardBg: string }> = {
+  web: { icon: Globe, badge: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20", cardBg: "bg-gradient-to-br from-card via-card to-blue-500/[0.07]" },
+  hackathon: { icon: Trophy, badge: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20", cardBg: "bg-gradient-to-br from-card via-card to-amber-500/[0.07]" },
+  university: { icon: GraduationCap, badge: "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20", cardBg: "bg-gradient-to-br from-card via-card to-violet-500/[0.07]" },
 };
 
 const Projects = ({ limit }: { limit?: number }) => {
@@ -87,7 +87,7 @@ const Projects = ({ limit }: { limit?: number }) => {
         {/* Projects Grid */}
         <div className="grid gap-4 md:grid-cols-2 max-w-6xl mx-auto sm:px-0">
           {displayProjects.map((project, index) => {
-            const { icon: CategoryIcon, badge } = categoryStyle[project.category];
+            const { icon: CategoryIcon, badge, cardBg } = categoryStyle[project.category];
             const featured = index === 0;
 
             return (
@@ -97,7 +97,8 @@ const Projects = ({ limit }: { limit?: number }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
                 className={clsx(
-                  "rounded-3xl border border-border bg-card hover:border-blue-500/30 hover:bg-card-strong transition-all duration-500 text-left flex flex-col h-full group",
+                  "rounded-3xl border border-border hover:border-blue-500/30 transition-all duration-500 text-left flex flex-col h-full group",
+                  cardBg,
                   featured ? "p-6 md:col-span-2" : "p-4"
                 )}
               >

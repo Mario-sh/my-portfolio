@@ -106,6 +106,13 @@ export type ProjectEntry = {
 export const projectContent: Record<Lang, ProjectEntry[]> = {
   fr: [
     {
+      name: "TheSocialNetwork",
+      description: "Réseau social façon Facebook, développé en PHP et AJAX.",
+      tech: ["PHP", "AJAX"],
+      github: "https://github.com/Mario-sh/TheSocialNetwork",
+      category: "university",
+    },
+    {
       name: "Strateek",
       description:
         "Site web et assistant IA pour une agence de marketing digital, avec un assistant contextuel disponible 24h/24 pour répondre aux questions sur l'entreprise.",
@@ -141,13 +148,6 @@ export const projectContent: Record<Lang, ProjectEntry[]> = {
       category: "web",
     },
     {
-      name: "TheSocialNetwork",
-      description: "Réseau social façon Facebook, développé en PHP et AJAX.",
-      tech: ["PHP", "AJAX"],
-      github: "https://github.com/Mario-sh/TheSocialNetwork",
-      category: "university",
-    },
-    {
       name: "BiblioTech",
       // TODO: ajouter le lien GitHub une fois le repo publié
       description: "Application de gestion de bibliothèque développée avec Laravel.",
@@ -168,6 +168,13 @@ export const projectContent: Record<Lang, ProjectEntry[]> = {
     },
   ],
   en: [
+    {
+      name: "TheSocialNetwork",
+      description: "A Facebook-style social network, built with PHP and AJAX.",
+      tech: ["PHP", "AJAX"],
+      github: "https://github.com/Mario-sh/TheSocialNetwork",
+      category: "university",
+    },
     {
       name: "Strateek",
       description:
@@ -202,13 +209,6 @@ export const projectContent: Record<Lang, ProjectEntry[]> = {
       tech: [],
       live: "https://cecilegoudou.com",
       category: "web",
-    },
-    {
-      name: "TheSocialNetwork",
-      description: "A Facebook-style social network, built with PHP and AJAX.",
-      tech: ["PHP", "AJAX"],
-      github: "https://github.com/Mario-sh/TheSocialNetwork",
-      category: "university",
     },
     {
       name: "BiblioTech",
