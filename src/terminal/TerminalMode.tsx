@@ -77,8 +77,10 @@ const TerminalMode = ({ setTerminalMode }: Props) => {
       return;
     }
 
-    if (trimmed.startsWith("themes")) {
-      const args = trimmed.split(" ");
+    if (trimmed === "theme" || trimmed.startsWith("theme ") || trimmed.startsWith("themes")) {
+      // "theme" (singulier) accepté comme alias de "themes" : réflexe naturel à taper.
+      const normalized = trimmed.startsWith("theme ") ? `themes ${trimmed.slice(6)}` : trimmed;
+      const args = normalized === "theme" ? ["themes"] : normalized.split(" ");
       const command = args[1];
       const targetTheme = args[2];
       if (command === "list" || (command === "set" && targetTheme === "list")) {
@@ -142,6 +144,9 @@ const TerminalMode = ({ setTerminalMode }: Props) => {
       didMountRef.current = true;
       // Auto-run `whoami` on mount
       handleCommand("whoami");
+      // Focus direct : sans ça, il faut cliquer dans le terminal avant de pouvoir taper,
+      // ce qui n'est pas évident (le champ de saisie est invisible, superposé au texte).
+      inputRef.current?.focus();
     }
   }, []);
 
