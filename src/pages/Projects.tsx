@@ -2,12 +2,19 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Github, ArrowUpRight } from "lucide-react";
+import { Github, ArrowUpRight, Globe, Trophy, GraduationCap } from "lucide-react";
 import clsx from "clsx";
 import { projectContent, type ProjectEntry } from "../i18n/content";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const categories = Array.from(new Set(projectContent.fr.map((p) => p.category))) as ProjectEntry["category"][];
+
+// Classes écrites en toutes lettres (pas de template interpolé) pour que Tailwind les détecte au build.
+const categoryStyle: Record<ProjectEntry["category"], { icon: typeof Globe; badge: string }> = {
+  web: { icon: Globe, badge: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20" },
+  hackathon: { icon: Trophy, badge: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20" },
+  university: { icon: GraduationCap, badge: "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20" },
+};
 
 const Projects = ({ limit }: { limit?: number }) => {
   const { t, lang } = useLanguage();
@@ -79,53 +86,71 @@ const Projects = ({ limit }: { limit?: number }) => {
 
         {/* Projects Grid */}
         <div className="grid gap-4 md:grid-cols-2 max-w-6xl mx-auto sm:px-0">
-          {displayProjects.map((project) => (
-            <motion.div
-              key={project.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              className="rounded-3xl p-4 border border-border bg-card hover:border-blue-500/30 hover:bg-card-strong transition-all duration-500 text-left flex flex-col h-full group"
-            >
-              <h3 className="text-2xl font-bold mb-3 text-foreground group-hover:text-blue-500 transition-colors">{project.name}</h3>
-              <p className="text-base text-muted mb-6 flex-grow leading-relaxed">
-                {project.description || t.projects.fallbackDescription}
-              </p>
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="bg-card border border-border px-2.5 py-1 rounded-lg font-mono text-[11px] text-muted font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+          {displayProjects.map((project, index) => {
+            const { icon: CategoryIcon, badge } = categoryStyle[project.category];
+            const featured = index === 0;
 
-              <div className="flex items-center justify-between mt-auto pt-4 border-t border-border">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors font-bold"
-                  >
-                    <Github size={18} /> {t.projects.source}
-                  </a>
+            return (
+              <motion.div
+                key={project.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className={clsx(
+                  "rounded-3xl border border-border bg-card hover:border-blue-500/30 hover:bg-card-strong transition-all duration-500 text-left flex flex-col h-full group",
+                  featured ? "p-6 md:col-span-2" : "p-4"
                 )}
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono text-xs font-semibold text-blue-600 dark:text-blue-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors uppercase tracking-widest"
-                  >
-                    {t.projects.liveDemo} →
-                  </a>
-                )}
-              </div>
-            </motion.div>
-          ))}
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className={clsx("inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-mono text-[10px] font-semibold uppercase tracking-widest border", badge)}>
+                    <CategoryIcon size={12} />
+                    {t.projects.categories[project.category]}
+                  </span>
+                </div>
+
+                <h3 className={clsx("font-bold mb-3 text-foreground group-hover:text-blue-500 transition-colors", featured ? "text-3xl" : "text-2xl")}>
+                  {project.name}
+                </h3>
+                <p className={clsx("text-muted mb-6 flex-grow leading-relaxed", featured ? "text-lg max-w-2xl" : "text-base")}>
+                  {project.description || t.projects.fallbackDescription}
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="bg-card border border-border px-2.5 py-1 rounded-lg font-mono text-[11px] text-muted font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-2 mt-auto pt-4 border-t border-border">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-border text-sm font-bold text-muted hover:text-foreground hover:border-blue-500/30 transition-colors"
+                    >
+                      <Github size={16} /> {t.projects.source}
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs font-semibold uppercase tracking-widest transition-colors ml-auto"
+                    >
+                      {t.projects.liveDemo}
+                      <ArrowUpRight size={14} />
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
         {limit && filteredProjects.length > limit && (
