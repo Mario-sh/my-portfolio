@@ -1,32 +1,35 @@
 <p align="center">
-  <img src="public/assets/Logo.png"  height="128">
-  <h2 align="center"><a href="https://aj7.pages.dev"> ajseven.me </a></h2>
-  <p align="center">Personal Portfolio<p>
-  <p align="center">
-   <a href='#'><img src=https://img.shields.io/badge/Maintained%3F-yes-green.svg></img><a/>
-  </p>
+  <h2 align="center">Mario Lokossou — Portfolio</h2>
+  <p align="center">Full-Stack Engineer · AI Integration</p>
 </p>
 
-## Development
+Portfolio personnel : présentation, parcours, projets, compétences, contact. Mode clair/sombre, bilingue FR/EN, et un easter egg en mode terminal.
 
-Clone the repository, install the dependencies and start the application
+## Stack
+
+- React 18 + TypeScript + Vite
+- Tailwind CSS (thème clair/sombre par variables CSS)
+- Framer Motion
+- Polices auto-hébergées : Outfit + JetBrains Mono (`@fontsource`)
+
+## Développement
 
 ```bash
-git clone git@github.com:Aj-Seven/aj-seven.me.git
-cd ajseven.me
-npm install
-npm start
-
-# For Build and serving static pages
-npm run build
-npm -g install serve
-serve build
+git clone https://github.com/Mario-sh/my-portfolio.git
+cd my-portfolio
+pnpm install
+pnpm dev
 ```
 
-**Note:** use the `depth` parameter to reduce the clone size and speed up the clone.
-
-```sh
-git clone --depth=1 https://github.com/Aj-Seven/ajseven.me.git
+```bash
+# Build de production
+pnpm build
+pnpm preview
 ```
 
-<a href="https://www.buymeacoffee.com/aj.seven" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 140px !important;" ></a>
+## Structure
+
+- `src/data/userData.ts` — identité, compétences, contacts
+- `src/i18n/` — traductions FR/EN (`translations.ts`) et contenu bilingue (parcours, projets) dans `content.ts`
+- `src/pages/`, `src/sections/` — sections du site (Hero, About, Skills, Projects, Contact)
+- `src/terminal/` — mode terminal (easter egg)
