@@ -5,6 +5,9 @@ import { getCommandData } from "./CommandData";
 import { isGlowCommand, isValidCommand } from "./data/commands";
 import { terminalThemes } from "./data/themes";
 import { useLanguage } from "../i18n/LanguageContext";
+import { personalInfo } from "../data/userData";
+
+const PROMPT = `${personalInfo.alias.toLowerCase()}@portfolio:~$`;
 
 type Line = {
   text?: string;
@@ -49,7 +52,7 @@ const TerminalMode = ({ setTerminalMode }: Props) => {
     const trimmed = cmd.trim();
     if (!trimmed) return;
 
-    pushLine({ text: `aj-seven@terminal:~$ ${trimmed}`, type: "success" });
+    pushLine({ text: `${PROMPT} ${trimmed}`, type: "success" });
 
     // Ensure we clear input and save history before any specific command logic
     setCommandHistory((prev) => {
@@ -211,7 +214,7 @@ const TerminalMode = ({ setTerminalMode }: Props) => {
           }}
           className="flex items-center mb-4"
         >
-          <span className="pr-2 text-green-300">aj-seven@terminal:~$</span>
+          <span className="pr-2 text-green-300">{PROMPT}</span>
           <div className="relative flex-1 min-h-[1.5rem]">
             {/* Visual block cursor and text */}
             <div className="absolute inset-0 pointer-events-none flex items-center whitespace-pre">
