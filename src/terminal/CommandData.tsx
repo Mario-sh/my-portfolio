@@ -11,10 +11,8 @@ export const getCommandData = (
 ): Record<string, React.ReactNode> => ({
   whoami: (
     <>
-      <div>Welcome, Guest 👋</div>
-      <span>
-        Try typing <strong>help</strong> to get list of commands.
-      </span>
+      <div>{t.terminal.welcome}</div>
+      <span>{t.terminal.tryHelp}</span>
     </>
   ),
   about: (
@@ -26,7 +24,7 @@ export const getCommandData = (
           className="h-32 w-30 rounded-full border border-green-500"
         />
         <div>
-          <div className="text-lg font-bold">Hi! I'm {personalInfo.alias}</div>
+          <div className="text-lg font-bold">{t.terminal.helloImAlias}{personalInfo.alias}</div>
           <div className="text-sm text-green-300">
             {personalInfo.role}
           </div>
@@ -39,7 +37,7 @@ export const getCommandData = (
                 rel="noopener noreferrer"
                 className="hover:underline text-primary font-bold"
               >
-                aj-seven
+                {contactItems.find(i => i.label === "GitHub")?.value}
               </a>
             </span>
             <span className="font-semibold flex flex-row items-center gap-1">
@@ -168,7 +166,7 @@ export const getCommandData = (
   ),
   help: (
     <>
-      🧠 Available commands:
+      🧠 {t.terminal.availableCommands}
       <ul className="list-disc ml-4 font-bold">
         <li>whoami</li>
         <li>about</li>

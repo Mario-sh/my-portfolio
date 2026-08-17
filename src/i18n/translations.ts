@@ -64,6 +64,12 @@ export const translations: Record<
       body: string;
       cta: string;
     };
+    terminal: {
+      welcome: string;
+      tryHelp: string;
+      helloImAlias: string; // ex. "Hi! I'm " (suivi de l'alias)
+      availableCommands: string;
+    };
   }
 > = {
   fr: {
@@ -81,16 +87,16 @@ export const translations: Record<
     },
     hero: {
       intro: "Je suis ",
-      bio: "Je conçois des applications web robustes et j'intègre des capacités IA concrètes — RAG, APIs LLM, automatisation. En formation en architecture logicielle à l'ESGIS, je cherche un stage ou une opportunité pour construire des systèmes qui comptent.",
+      bio: "Je conçois des applications web robustes et j'intègre des capacités IA concrètes : RAG, APIs LLM, automatisation. En formation en architecture logicielle à l'ESGIS, je cherche un stage ou une opportunité pour construire des systèmes qui comptent.",
       ctaWork: "Travaux sélectionnés",
       ctaContact: "Discutons ensemble",
     },
     about: {
-      heading: "Qui suis-je",
-      subheading: "Un parcours chronologique à travers mon évolution professionnelle et mes réalisations techniques.",
-      bioBefore: "Étudiant en 3ème année à ",
+      heading: "Qui suis-je ?",
+      subheading: "Un aperçu chronologique de mon évolution et de mes réalisations techniques.",
+      bioBefore: "Étudiant en 3ᵉ année à ",
       bioAfter:
-        ", je me forme à l'architecture logicielle tout en construisant des projets réels — applications web fullstack, intégrations d'APIs LLM, automatisation. Mon objectif : devenir Software Engineer spécialisé IA.",
+        ", je me forme à l'architecture logicielle tout en construisant des projets réels, entre applications web fullstack, intégrations d'APIs LLM et automatisation. Mon objectif : devenir Software Engineer spécialisé IA.",
       facts: ["Étudiant", "Développeur Web & Logiciel", "Passionné d'IA", "Hackathons IA", "Futur AI Engineer"],
       timelineEyebrow: "Parcours",
       readMore: "Lire la suite",
@@ -102,7 +108,7 @@ export const translations: Record<
     },
     projects: {
       heading: "Projets phares",
-      subheading: "Une sélection de mes réalisations les plus significatives, des applications web aux expérimentations.",
+      subheading: "Un aperçu de mes réalisations les plus marquantes, des applications web aux expérimentations créatives.",
       filterAll: "Tous",
       source: "Code source",
       liveDemo: "Voir le site",
@@ -115,7 +121,7 @@ export const translations: Record<
       headlineStart: "Construisons de ",
       headlineAccent: "meilleurs",
       headlineEnd: " produits.",
-      body: "Ouvert aux opportunités intéressantes ou simplement à une conversation.",
+      body: "Ouvert aux opportunités intéressantes, ou simplement à échanger.",
       ctaContact: "Discutons ensemble",
       ctaResume: "CV",
     },
@@ -128,6 +134,12 @@ export const translations: Record<
       title: "Un problème est survenu",
       body: "Quelque chose s'est mal passé pendant l'affichage de cette page.",
       cta: "Retour à l'accueil",
+    },
+    terminal: {
+      welcome: "Bienvenue, invité 👋",
+      tryHelp: "Tapez help pour voir la liste des commandes.",
+      helloImAlias: "Salut ! Je suis ",
+      availableCommands: "Commandes disponibles :",
     },
   },
   en: {
@@ -145,16 +157,16 @@ export const translations: Record<
     },
     hero: {
       intro: "I'm ",
-      bio: "I build robust web applications and integrate real AI capabilities — RAG, LLM APIs, automation. Currently studying software architecture at ESGIS, I'm looking for an internship or opportunity to build systems that matter.",
+      bio: "I build robust web applications and integrate real AI capabilities: RAG, LLM APIs, automation. Currently studying software architecture at ESGIS, I'm looking for an internship or opportunity to build systems that matter.",
       ctaWork: "Selected Works",
       ctaContact: "Start a Conversation",
     },
     about: {
       heading: "Who Am I",
-      subheading: "A chronological journey through my professional growth and engineering milestones.",
+      subheading: "A chronological look at my growth and technical milestones so far.",
       bioBefore: "Third-year student at ",
       bioAfter:
-        ", training in software architecture while building real projects — full-stack web apps, LLM API integrations, automation. My goal: becoming a Software Engineer specialized in AI.",
+        ", training in software architecture while building real projects, from full-stack web apps to LLM API integrations and automation. My goal: becoming a Software Engineer specialized in AI.",
       facts: ["Student", "Web & Software Developer", "AI Enthusiast", "AI Hackathons", "Future AI Engineer"],
       timelineEyebrow: "Timeline",
       readMore: "Read Insight",
@@ -166,7 +178,7 @@ export const translations: Record<
     },
     projects: {
       heading: "Featured Projects",
-      subheading: "A collection of my most impactful work, from web applications to creative experiments.",
+      subheading: "A look at my most meaningful work, from web applications to creative experiments.",
       filterAll: "All",
       source: "Source",
       liveDemo: "Live Demo",
@@ -179,7 +191,7 @@ export const translations: Record<
       headlineStart: "Let's build ",
       headlineAccent: "better",
       headlineEnd: " products.",
-      body: "Open for interesting opportunities or just a meaningful chat.",
+      body: "Open for interesting opportunities, or just a good conversation.",
       ctaContact: "Start a Conversation",
       ctaResume: "Resume",
     },
@@ -192,6 +204,12 @@ export const translations: Record<
       title: "Something went wrong",
       body: "Something broke while rendering this page.",
       cta: "Back to home",
+    },
+    terminal: {
+      welcome: "Welcome, Guest 👋",
+      tryHelp: "Try typing help to see the list of commands.",
+      helloImAlias: "Hi! I'm ",
+      availableCommands: "Available commands:",
     },
   },
 };
