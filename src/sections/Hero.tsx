@@ -100,9 +100,8 @@ const Hero = () => {
         className="relative flex-shrink-0"
       >
         <div className="relative group">
-          {/* Corner Accents */}
-          <div className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-blue-500/60 z-20 transition-transform group-hover:rotate-12" />
-          <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-blue-500/60 z-20 transition-transform group-hover:-rotate-12" />
+          {/* Offset frame: carte décalée derrière la photo, façon pile de fiches */}
+          <div className="absolute -bottom-4 -right-4 w-[300px] md:w-[340px] lg:w-[380px] aspect-square rounded-3xl border-2 border-blue-500/30 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1" />
 
           {/* Avatar Container */}
           <div className="relative w-[300px] md:w-[340px] lg:w-[380px] aspect-square rounded-3xl overflow-hidden border border-border shadow-2xl bg-card">
@@ -114,9 +113,6 @@ const Hero = () => {
 
             {/* Overlay Effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-background/30 group-hover:via-transparent transition-all duration-700" />
-
-            {/* Scan Line */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-foreground/10 to-transparent h-[3px] w-full -translate-y-full group-hover:animate-[scan_3.5s_linear_infinite] pointer-events-none" />
           </div>
 
           {/* Glow */}
