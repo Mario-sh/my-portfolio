@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Terminal, Code2, Github, Sun, Moon } from "lucide-react";
-import { contactItems, personalInfo } from "../data/userData";
+import { contactItems } from "../data/userData";
 import type { Theme } from "../hooks/useTheme";
 
 const githubUrl = contactItems.find((i) => i.label === "GitHub")?.href ?? "#";
@@ -28,53 +28,35 @@ const Navbar = ({ terminalMode, setTerminalMode, theme, toggleTheme }: Props) =>
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${terminalMode ? "py-0" : scrolled ? "py-3" : "py-4"
         }`}
     >
-      {/*
-        Fond plein bord à bord, indépendant de la pastille intérieure : sans lui, les marges
-        extérieures de la nav restent transparentes et le contenu de la page (peu importe sa
-        hauteur) peut se glisser derrière la barre au scroll. Ce calque garantit qu'aucun
-        contenu ne "déborde" derrière la nav, quel que soit ce qu'il y a en dessous.
-      */}
-      <div
-        className={`absolute inset-0 z-0 transition-opacity duration-500 ${!terminalMode && scrolled ? "opacity-100 bg-background/95 backdrop-blur-xl border-b border-border" : "opacity-0"
-          }`}
-      />
-      <div className={`relative z-10 mx-auto transition-all duration-500 ${terminalMode ? "max-w-full px-0 mt-2" : "max-w-7xl px-2 sm:px-4 lg:px-6"
+      <div className={`mx-auto transition-all duration-500 ${terminalMode ? "max-w-full px-0 mt-2" : "max-w-7xl px-2 sm:px-4 lg:px-6"
         }`}>
         <div
-          className={`relative flex items-center justify-between px-2 sm:px-4 transition-all duration-500 ${terminalMode
+          className={`relative flex items-center justify-between px-3 sm:px-4 transition-all duration-500 ${terminalMode
             ? "bg-black text-green-400 border-b border-green-500/30 rounded-none py-2"
-            : `py-3 rounded-2xl border ${scrolled
-              ? "bg-background/80 backdrop-blur-xl border-border shadow-2xl"
-              : "bg-transparent border-transparent"
+            : `py-3 rounded-2xl ${scrolled
+              ? "bg-background/50 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_8px_30px_-8px_rgba(0,0,0,0.25)] ring-1 ring-inset ring-white/15 dark:ring-white/10"
+              : "bg-transparent"
             }`
             }`}
         >
           {/* Logo */}
           <a
             href="/"
+            aria-label="Retour à l'accueil"
             onClick={(e) => {
               if (terminalMode) {
                 e.preventDefault();
               }
             }}
-            className="flex items-center gap-1.5 sm:gap-2 group min-w-0"
+            className="flex items-center group shrink-0"
           >
-            <div className={`shrink-0 p-1.5 sm:p-2 rounded-xl border transition-all duration-300 ${terminalMode ? "border-green-500/50 bg-green-500/10" : "border-border bg-card group-hover:border-blue-500/50"
+            <div className={`p-1.5 sm:p-2 rounded-xl border transition-all duration-300 ${terminalMode ? "border-green-500/50 bg-green-500/10" : "border-border bg-card group-hover:border-blue-500/50"
               }`}>
               {terminalMode ? (
                 <Terminal size={18} className="text-green-500 sm:w-[22px] sm:h-[22px]" />
               ) : (
                 <Code2 size={18} className="text-blue-500 sm:w-[22px] sm:h-[22px]" />
               )}
-            </div>
-            <div className="relative min-w-0">
-              <span className="font-black text-lg sm:text-2xl tracking-tighter uppercase text-foreground flex items-baseline truncate">
-                {personalInfo.alias}
-                <span className={`text-sm sm:text-[17px] ml-0.5 transition-colors truncate ${terminalMode ? "text-muted group-hover:text-green-500" : "text-muted group-hover:text-blue-500"}`}>
-                  {personalInfo.name.split(" ").slice(1).join(" ")}
-                </span>
-              </span>
-              <div className={`absolute -bottom-0.5 left-0 h-1 rounded-full transition-all duration-300 w-0 group-hover:w-full ${terminalMode ? "bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" : "bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"}`} />
             </div>
           </a>
 
