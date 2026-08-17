@@ -12,9 +12,9 @@ export type TimelineEntry = {
 export const timelineContent: Record<Lang, TimelineEntry[]> = {
   fr: [
     {
-      year: "2025–2026",
-      detail: "Licence 2 — Architecture Logicielle à l'ESGIS Bénin (Cotonou), en cours.",
-      more: "Formation centrée sur la conception de systèmes robustes, l'architecture logicielle et les bonnes pratiques d'ingénierie.",
+      year: "2026–2027",
+      detail: "Licence 3 — Architecture Logicielle à l'ESGIS Bénin (Cotonou), rentrée en septembre 2026.",
+      more: "Deuxième année validée. Formation centrée sur la conception de systèmes robustes, l'architecture logicielle et les bonnes pratiques d'ingénierie.",
     },
     {
       year: "2026",
@@ -27,9 +27,13 @@ export const timelineContent: Record<Lang, TimelineEntry[]> = {
       more: "Stack React TSX, Python et FastAPI, développée en équipe (Les Mentats) sur un temps de hackathon.",
     },
     {
+      year: "2025–2026",
+      detail: "Licence 2 — Architecture Logicielle à l'ESGIS Bénin (Cotonou), validée.",
+    },
+    {
       year: "2025",
-      detail: "Licence 1 — Développement Web à HENSA Bénin (Godomey).",
-      more: "Bases du développement web : algorithmique, structures de données, premiers frameworks.",
+      detail: "Développeur web chez Ghinel, startup dédiée à la préservation culturelle par la technologie.",
+      more: "Développement de solutions numériques pour la valorisation et la préservation du patrimoine culturel.",
     },
     {
       year: "2024–2026",
@@ -37,9 +41,9 @@ export const timelineContent: Record<Lang, TimelineEntry[]> = {
       more: "Conception et développement de sites web sur-mesure, de la maquette à la mise en production.",
     },
     {
-      year: "2024",
-      detail: "Développeur web chez Ghinel, startup dédiée à la préservation culturelle par la technologie.",
-      more: "Développement de solutions numériques pour la valorisation et la préservation du patrimoine culturel.",
+      year: "2024–2025",
+      detail: "Licence 1 — Développement Web à HENSA Bénin (Godomey).",
+      more: "Bases du développement web : algorithmique, structures de données, premiers frameworks.",
     },
     {
       year: "2024",
@@ -48,9 +52,9 @@ export const timelineContent: Record<Lang, TimelineEntry[]> = {
   ],
   en: [
     {
-      year: "2025–2026",
-      detail: "Bachelor's Year 2 — Software Architecture at ESGIS Bénin (Cotonou), in progress.",
-      more: "Coursework focused on designing robust systems, software architecture, and engineering best practices.",
+      year: "2026–2027",
+      detail: "Bachelor's Year 3 — Software Architecture at ESGIS Bénin (Cotonou), starting September 2026.",
+      more: "Second year completed. Coursework focused on designing robust systems, software architecture, and engineering best practices.",
     },
     {
       year: "2026",
@@ -63,9 +67,13 @@ export const timelineContent: Record<Lang, TimelineEntry[]> = {
       more: "React TSX, Python and FastAPI stack, built with a team (Les Mentats) over the hackathon.",
     },
     {
+      year: "2025–2026",
+      detail: "Bachelor's Year 2 — Software Architecture at ESGIS Bénin (Cotonou), completed.",
+    },
+    {
       year: "2025",
-      detail: "Bachelor's Year 1 — Web Development at HENSA Bénin (Godomey).",
-      more: "Web development fundamentals: algorithms, data structures, first frameworks.",
+      detail: "Web developer at Ghinel, a startup focused on cultural preservation through technology.",
+      more: "Building digital solutions to promote and preserve cultural heritage.",
     },
     {
       year: "2024–2026",
@@ -73,9 +81,9 @@ export const timelineContent: Record<Lang, TimelineEntry[]> = {
       more: "Designing and building custom websites, from mockup to production.",
     },
     {
-      year: "2024",
-      detail: "Web developer at Ghinel, a startup focused on cultural preservation through technology.",
-      more: "Building digital solutions to promote and preserve cultural heritage.",
+      year: "2024–2025",
+      detail: "Bachelor's Year 1 — Web Development at HENSA Bénin (Godomey).",
+      more: "Web development fundamentals: algorithms, data structures, first frameworks.",
     },
     {
       year: "2024",

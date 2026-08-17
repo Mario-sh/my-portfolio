@@ -99,7 +99,7 @@ export const translations: Record<
       bioBefore: "Étudiant en 3ᵉ année à ",
       bioAfter:
         ", je me forme à l'architecture logicielle tout en construisant des projets réels, entre applications web fullstack, intégrations d'APIs LLM et automatisation. Mon objectif : devenir Software Engineer spécialisé IA.",
-      facts: ["Étudiant", "Développeur Web & Logiciel", "Passionné d'IA", "Hackathons IA", "Futur AI Engineer"],
+      facts: ["8+ projets", "2 hackathons IA", "2+ ans d'expérience", "20+ technologies", "Bilingue FR/EN"],
       timelineEyebrow: "Parcours",
       readMore: "Lire la suite",
       showLess: "Réduire",
@@ -171,7 +171,7 @@ export const translations: Record<
       bioBefore: "Third-year student at ",
       bioAfter:
         ", training in software architecture while building real projects, from full-stack web apps to LLM API integrations and automation. My goal: becoming a Software Engineer specialized in AI.",
-      facts: ["Student", "Web & Software Developer", "AI Enthusiast", "AI Hackathons", "Future AI Engineer"],
+      facts: ["8+ projects", "2 AI hackathons", "2+ years experience", "20+ technologies", "Bilingual FR/EN"],
       timelineEyebrow: "Timeline",
       readMore: "Read Insight",
       showLess: "Show Less",
