@@ -87,7 +87,7 @@ const Contact = () => {
                   </div>
 
                   <div className="flex-1 flex flex-col items-start text-left">
-                    <p className="font-black text-muted uppercase tracking-widest text-[10px] mb-1">
+                    <p className="font-mono font-semibold text-muted uppercase tracking-widest text-[10px] mb-1">
                       {label}
                     </p>
                     <p className="text-base font-bold text-foreground group-hover:text-blue-500 transition-colors truncate w-full">

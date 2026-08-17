@@ -57,20 +57,20 @@ const Navbar = ({ terminalMode, setTerminalMode, theme, toggleTheme }: Props) =>
                 e.preventDefault();
               }
             }}
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-1.5 sm:gap-2 group min-w-0"
           >
-            <div className={`p-2 rounded-xl border transition-all duration-300 ${terminalMode ? "border-green-500/50 bg-green-500/10" : "border-border bg-card group-hover:border-blue-500/50"
+            <div className={`shrink-0 p-1.5 sm:p-2 rounded-xl border transition-all duration-300 ${terminalMode ? "border-green-500/50 bg-green-500/10" : "border-border bg-card group-hover:border-blue-500/50"
               }`}>
               {terminalMode ? (
-                <Terminal size={22} className="text-green-500" />
+                <Terminal size={18} className="text-green-500 sm:w-[22px] sm:h-[22px]" />
               ) : (
-                <Code2 size={22} className="text-blue-500" />
+                <Code2 size={18} className="text-blue-500 sm:w-[22px] sm:h-[22px]" />
               )}
             </div>
-            <div className="relative">
-              <span className="font-black text-2xl tracking-tighter uppercase text-foreground flex items-baseline">
+            <div className="relative min-w-0">
+              <span className="font-black text-lg sm:text-2xl tracking-tighter uppercase text-foreground flex items-baseline truncate">
                 {personalInfo.alias}
-                <span className={`text-[17px] ml-0.5 transition-colors ${terminalMode ? "text-muted group-hover:text-green-500" : "text-muted group-hover:text-blue-500"}`}>
+                <span className={`text-sm sm:text-[17px] ml-0.5 transition-colors truncate ${terminalMode ? "text-muted group-hover:text-green-500" : "text-muted group-hover:text-blue-500"}`}>
                   {personalInfo.name.split(" ").slice(1).join(" ")}
                 </span>
               </span>
@@ -79,35 +79,35 @@ const Navbar = ({ terminalMode, setTerminalMode, theme, toggleTheme }: Props) =>
           </a>
 
           {/* Controls */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <a
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-border bg-card hover:bg-card-strong transition-all group"
+              className="flex items-center gap-2 p-1.5 sm:px-3 sm:py-1.5 rounded-xl border border-border bg-card hover:bg-card-strong transition-all group"
             >
-              <Github size={22} className="text-muted group-hover:text-foreground transition-colors" />
+              <Github size={18} className="text-muted group-hover:text-foreground transition-colors sm:w-[22px] sm:h-[22px]" />
             </a>
 
             {!terminalMode && (
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-xl border border-border bg-card text-muted hover:text-foreground hover:border-blue-500/30 transition-all duration-300"
+                className="p-1.5 sm:p-2 rounded-xl border border-border bg-card text-muted hover:text-foreground hover:border-blue-500/30 transition-all duration-300"
                 title={theme === "dark" ? "Passer en mode clair" : "Passer en mode sombre"}
               >
-                {theme === "dark" ? <Sun size={22} /> : <Moon size={22} />}
+                {theme === "dark" ? <Sun size={18} className="sm:w-[22px] sm:h-[22px]" /> : <Moon size={18} className="sm:w-[22px] sm:h-[22px]" />}
               </button>
             )}
 
             <button
               onClick={() => setTerminalMode(!terminalMode)}
-              className={`p-2 rounded-xl border transition-all duration-300 ${terminalMode
+              className={`p-1.5 sm:p-2 rounded-xl border transition-all duration-300 ${terminalMode
                 ? "border-green-500/50 bg-green-500/20 text-green-400"
                 : "border-border bg-card text-muted hover:text-foreground hover:border-blue-500/30"
                 }`}
               title="Basculer le terminal"
             >
-              <Terminal size={22} />
+              <Terminal size={18} className="sm:w-[22px] sm:h-[22px]" />
             </button>
           </div>
         </div>

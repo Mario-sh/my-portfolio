@@ -73,7 +73,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
-                className="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest border border-border bg-card text-muted hover:text-foreground hover:border-blue-500/30 transition-all duration-300"
+                className="px-4 py-2 rounded-xl font-mono text-xs font-semibold uppercase tracking-widest border border-border bg-card text-muted hover:text-foreground hover:border-blue-500/30 transition-all duration-300"
               >
                 {fact}
               </motion.div>
@@ -83,7 +83,7 @@ const About = () => {
 
         {/* Timeline Header */}
         <div className="flex flex-col items-center mb-12 text-center">
-          <h3 className="text-sm font-black text-blue-600 uppercase tracking-[0.3em]">
+          <h3 className="font-mono text-sm font-semibold text-blue-600 uppercase tracking-[0.3em]">
             Timeline
           </h3>
           <div className="h-px w-24 bg-blue-600/30" />
@@ -106,7 +106,7 @@ const About = () => {
                 <span className="absolute flex h-4 w-4 rounded-full bg-background border-2 border-blue-600 -left-[41px] top-1.5 transition-all duration-500 group-hover:bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.3)]" />
 
                 <div className="flex flex-col gap-2">
-                  <span className="text-xs font-black text-muted uppercase tracking-widest">
+                  <span className="font-mono text-xs font-semibold text-muted uppercase tracking-widest">
                     {item.year}
                   </span>
 
@@ -131,7 +131,7 @@ const About = () => {
                     {hasMore && (
                       <button
                         onClick={() => toggleExpand(i)}
-                        className="mt-4 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-blue-600 hover:text-blue-400 transition-colors"
+                        className="mt-4 flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-widest text-blue-600 hover:text-blue-400 transition-colors"
                       >
                         {expandedIds[i] ? (
                           <><Minus size={14} /> Show Less</>

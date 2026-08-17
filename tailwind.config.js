@@ -3,6 +3,10 @@ const config = {
   darkMode: "class", // important!
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Outfit", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        mono: ['"JetBrains Mono"', "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

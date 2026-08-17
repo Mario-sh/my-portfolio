@@ -12,39 +12,18 @@ const Hero = () => {
       transition={{ duration: 1 }}
       className="min-h-[90vh] w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 lg:px-8 gap-12 lg:gap-16 relative z-10 pt-24 pb-20 scroll-mt-20"
     >
-      {/* Background Branding */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 opacity-70">
-        <span className="text-[18rem] md:text-[28rem] font-black text-foreground/[0.06] select-none tracking-[-0.07em]">
-          {personalInfo.shortAlias}
-        </span>
-      </div>
-
       {/* Left Content */}
       <div className="flex-1 text-left max-w-2xl space-y-4 relative z-10">
         <div className="space-y-4">
-          {/* Status */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold uppercase tracking-widest"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-            </span>
-            {personalInfo.status}
-          </motion.div>
-
           {/* Name & Role */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8, ease: "circOut" }}
+            transition={{ delay: 0.1, duration: 0.8, ease: "circOut" }}
             className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-foreground"
           >
             <span className="block">{personalInfo.name}</span>
-            <span className="block text-muted text-3xl sm:text-5xl lg:text-7xl leading-[1.1]">
+            <span className="block text-muted text-2xl sm:text-4xl lg:text-6xl leading-[1.15] font-bold">
               {personalInfo.role}
             </span>
           </motion.h1>
@@ -67,14 +46,14 @@ const Hero = () => {
           transition={{ delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center gap-4 pt-4"
         >
-          <div className="flex items-center gap-4 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <a
               href="#projects"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-foreground text-background font-black text-base hover:opacity-90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-foreground text-background font-black text-base hover:opacity-90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl whitespace-nowrap"
             >
               Selected Works
             </a>
@@ -85,9 +64,9 @@ const Hero = () => {
                 e.preventDefault();
                 document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20 whitespace-nowrap"
             >
-              Get in Touch
+              Start a Conversation
               <Send className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={18} />
             </a>
           </div>

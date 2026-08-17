@@ -42,7 +42,7 @@ const Skills = () => {
               className="p-4 rounded-3xl border border-border bg-card flex flex-col"
             >
               <div className="flex items-center gap-4 mb-6">
-                <h3 className="text-sm font-black text-blue-600 uppercase tracking-widest pl-3 border-l-2 border-blue-600">
+                <h3 className="font-mono text-sm font-semibold text-blue-600 uppercase tracking-widest pl-3 border-l-2 border-blue-600">
                   {categoryGroup.category}
                 </h3>
               </div>
@@ -63,7 +63,7 @@ const Skills = () => {
                         className={`w-full h-full object-contain ${item.invertDark ? 'dark:invert' : ''}`}
                       />
                     </div>
-                    <span className="text-[10px] sm:text-xs font-bold text-muted group-hover:text-foreground transition-colors text-center uppercase tracking-tighter">
+                    <span className="font-mono text-[10px] sm:text-xs font-medium text-muted group-hover:text-foreground transition-colors text-center uppercase tracking-tighter">
                       {item.name}
                     </span>
                   </motion.div>

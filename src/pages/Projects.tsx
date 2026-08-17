@@ -50,7 +50,7 @@ const Projects = ({ limit }: { limit?: number }) => {
           <button
             onClick={() => setActiveCategory("all")}
             className={clsx(
-              "px-4 py-2 rounded-full text-sm font-black transition-all duration-300 uppercase tracking-widest border",
+              "px-4 py-2 rounded-full font-mono text-xs font-semibold transition-all duration-300 uppercase tracking-widest border",
               activeCategory === "all"
                 ? "bg-foreground text-background border-foreground"
                 : "text-muted border-border hover:border-blue-500/30 hover:text-foreground"
@@ -63,7 +63,7 @@ const Projects = ({ limit }: { limit?: number }) => {
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={clsx(
-                "px-6 py-2 rounded-full text-sm font-black transition-all duration-300 uppercase tracking-widest border",
+                "px-6 py-2 rounded-full font-mono text-xs font-semibold transition-all duration-300 uppercase tracking-widest border",
                 activeCategory === cat
                   ? "bg-foreground text-background border-foreground"
                   : "text-muted border-border hover:border-blue-500/30 hover:text-foreground"
@@ -88,11 +88,11 @@ const Projects = ({ limit }: { limit?: number }) => {
               <p className="text-base text-muted mb-6 flex-grow leading-relaxed">
                 {project.description || "Building the future of digital experiences."}
               </p>
-              <div className="flex flex-wrap gap-1 text-xs mb-4">
+              <div className="flex flex-wrap gap-1.5 mb-4">
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="bg-card border border-border px-3 py-1 rounded-lg text-muted font-semibold tracking-tight"
+                    className="bg-card border border-border px-2.5 py-1 rounded-lg font-mono text-[11px] text-muted font-medium"
                   >
                     {t}
                   </span>
@@ -115,7 +115,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-black text-blue-600 dark:text-blue-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors uppercase tracking-widest"
+                    className="font-mono text-xs font-semibold text-blue-600 dark:text-blue-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors uppercase tracking-widest"
                   >
                     Live Demo →
                   </a>

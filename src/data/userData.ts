@@ -10,14 +10,12 @@ export const personalInfo = {
   // Nom complet, utilisé pour le SEO (meta description, title étendu) plutôt que dans le Hero.
   fullName: "Mario Miguel Dylane Lokossou Soton",
   alias: "Mario",
-  shortAlias: "ML",
   location: "Cotonou, Bénin",
-  role: "Full-Stack Developer and aspiring AI Engineer",
+  role: "Full-Stack Engineer · AI Integration",
   college: "ESGIS Cotonou",
   // TODO: ajouter l'URL du site de votre école si vous voulez que "ESGIS Cotonou" soit un lien
   collegeUrl: "",
   avatarUrl: "/assets/ME.jpg", // TODO: remplacer par votre photo
-  status: "Ouvert aux opportunités",
   aboutText:
     "Je conçois des applications web robustes et j'intègre des capacités IA concrètes — RAG, APIs LLM, automatisation. En formation en architecture logicielle à l'ESGIS, je cherche un stage ou une opportunité pour construire des systèmes qui comptent.",
   aboutText1: "Étudiant en 3ème année à ",
