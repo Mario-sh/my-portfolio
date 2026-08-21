@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 import { useTheme } from "./hooks/useTheme";
 import { useLanguage } from "./i18n/LanguageContext";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
@@ -64,9 +64,9 @@ const App = () => {
                   <div>
                     <Projects />
                     <div className="flex justify-center pb-24">
-                      <a href="/" className="px-8 py-4 rounded-full border border-border text-muted font-bold hover:bg-card hover:text-foreground transition-all">
+                      <Link to="/" className="px-8 py-4 rounded-full border border-border text-muted font-bold hover:bg-card hover:text-foreground transition-all">
                         ← {t.nav.backHome}
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 }

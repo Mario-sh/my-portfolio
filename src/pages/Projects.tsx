@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Github, ArrowUpRight, Globe, Trophy, GraduationCap } from "lucide-react";
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 import { projectContent, type ProjectEntry } from "../i18n/content";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -156,13 +157,13 @@ const Projects = ({ limit }: { limit?: number }) => {
 
         {limit && filteredProjects.length > limit && (
           <div className="mt-16 flex justify-center">
-            <a
-              href="/projects"
+            <Link
+              to="/projects"
               className="px-8 py-3.5 rounded-full border border-border text-foreground font-black text-base transition-all duration-300 hover:bg-card hover:border-blue-500/30 flex items-center gap-2 group"
             >
               {t.projects.viewMore}
               <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </a>
+            </Link>
           </div>
         )}
       </motion.div>
