@@ -68,6 +68,14 @@ const About = () => {
               )}
               {t.about.bioAfter}
             </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="mt-3 font-mono text-xs text-faint uppercase tracking-widest"
+            >
+              {t.about.fullNameNote}
+            </motion.p>
           </div>
 
           <div className="lg:col-span-2 flex flex-wrap gap-2">

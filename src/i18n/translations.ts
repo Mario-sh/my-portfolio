@@ -26,6 +26,7 @@ export const translations: Record<
       subheading: string;
       bioBefore: string;
       bioAfter: string;
+      fullNameNote: string;
       facts: string[];
       timelineEyebrow: string;
       readMore: string;
@@ -99,6 +100,7 @@ export const translations: Record<
       bioBefore: "Étudiant en 3ᵉ année à ",
       bioAfter:
         ", je me forme à l'architecture logicielle tout en construisant des projets réels, entre applications web fullstack, intégrations d'APIs LLM et automatisation. Mon objectif : devenir Software Engineer spécialisé IA.",
+      fullNameNote: "Nom complet : Mario Miguel Dylane Lokossou Soton",
       facts: ["8+ projets", "2 hackathons IA", "2+ ans d'expérience", "20+ technologies", "Bilingue FR/EN"],
       timelineEyebrow: "Parcours",
       readMore: "Lire la suite",
@@ -171,6 +173,7 @@ export const translations: Record<
       bioBefore: "Third-year student at ",
       bioAfter:
         ", training in software architecture while building real projects, from full-stack web apps to LLM API integrations and automation. My goal: becoming a Software Engineer specialized in AI.",
+      fullNameNote: "Full name: Mario Miguel Dylane Lokossou Soton",
       facts: ["8+ projects", "2 AI hackathons", "2+ years experience", "20+ technologies", "Bilingual FR/EN"],
       timelineEyebrow: "Timeline",
       readMore: "Read Insight",
