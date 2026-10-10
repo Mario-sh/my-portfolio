@@ -115,7 +115,7 @@ const Hero = () => {
               <source srcSet={personalInfo.avatarWebpUrl} type="image/webp" />
               <img
                 src={personalInfo.avatarUrl}
-                alt={personalInfo.name}
+                alt={`${personalInfo.name} (${personalInfo.fullName})`}
                 className="w-full h-full object-cover scale-105 group-hover:scale-100 grayscale group-hover:grayscale-0 transition-all duration-700"
               />
             </picture>
