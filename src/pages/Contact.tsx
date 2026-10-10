@@ -55,7 +55,7 @@ const Contact = () => {
             {/* CTA BUTTONS */}
             <div className="flex flex-wrap gap-2">
               <a
-                href="mailto:ajseven@outlook.in"
+                href="mailto:dylanlokossou@gmail.com"
                 className="px-6 py-3.5 rounded-full bg-foreground text-background font-black text-base transition-all duration-300 hover:opacity-90 hover:-translate-y-1 flex items-center gap-2 group"
               >
                 {t.contact.ctaContact}
