@@ -64,7 +64,7 @@ const App = () => {
                   <div>
                     <Projects />
                     <div className="flex justify-center pb-24">
-                      <Link to="/" className="px-8 py-4 rounded-full border border-border text-muted font-bold hover:bg-card hover:text-foreground transition-all">
+                      <Link to="/" className="px-8 py-4 rounded-xl border border-border text-muted font-bold hover:bg-card hover:text-foreground transition-all">
                         ← {t.nav.backHome}
                       </Link>
                     </div>

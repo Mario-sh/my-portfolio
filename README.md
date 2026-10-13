@@ -1,6 +1,6 @@
 <p align="center">
   <h2 align="center">Mario Lokossou — Portfolio</h2>
-  <p align="center">Full-Stack Engineer · AI Integration</p>
+  <p align="center">Software Engineering Student · Full-Stack & AI</p>
 </p>
 
 Portfolio personnel : présentation, parcours, projets, compétences, contact. Mode clair/sombre, bilingue FR/EN, et un easter egg en mode terminal.

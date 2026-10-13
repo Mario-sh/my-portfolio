@@ -17,7 +17,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10 scroll-mt-32">
+    <section id="about" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-foreground relative z-10 scroll-mt-24">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
-                className="px-4 py-2 rounded-xl font-mono text-xs font-semibold uppercase tracking-widest border border-border bg-card text-muted hover:text-foreground hover:border-blue-500/30 transition-all duration-300"
+                className="px-3.5 py-2 rounded-lg font-mono text-xs font-semibold uppercase tracking-widest border border-border bg-card text-muted hover:text-foreground hover:border-blue-500/30 transition-all duration-300"
               >
                 {fact}
               </motion.div>

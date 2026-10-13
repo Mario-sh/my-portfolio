@@ -29,7 +29,7 @@ const Projects = ({ limit }: { limit?: number }) => {
   const displayProjects = limit ? filteredProjects.slice(0, limit) : filteredProjects;
 
   return (
-    <section id="projects" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10 scroll-mt-32">
+    <section id="projects" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-foreground relative z-10 scroll-mt-24">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ const Projects = ({ limit }: { limit?: number }) => {
           <button
             onClick={() => setActiveCategory("all")}
             className={clsx(
-              "px-4 py-2 rounded-full font-mono text-xs font-semibold transition-all duration-300 uppercase tracking-widest border",
+              "px-4 py-2 rounded-lg font-mono text-xs font-semibold transition-all duration-300 uppercase tracking-widest border",
               activeCategory === "all"
                 ? "bg-foreground text-background border-foreground"
                 : "text-muted border-border hover:border-blue-500/30 hover:text-foreground"
@@ -74,7 +74,7 @@ const Projects = ({ limit }: { limit?: number }) => {
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={clsx(
-                "px-6 py-2 rounded-full font-mono text-xs font-semibold transition-all duration-300 uppercase tracking-widest border",
+                "px-5 py-2 rounded-lg font-mono text-xs font-semibold transition-all duration-300 uppercase tracking-widest border",
                 activeCategory === cat
                   ? "bg-foreground text-background border-foreground"
                   : "text-muted border-border hover:border-blue-500/30 hover:text-foreground"
@@ -104,7 +104,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                 )}
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span className={clsx("inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-mono text-[10px] font-semibold uppercase tracking-widest border", badge)}>
+                  <span className={clsx("inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md font-mono text-[10px] font-semibold uppercase tracking-widest border", badge)}>
                     <CategoryIcon size={12} />
                     {t.projects.categories[project.category]}
                   </span>
@@ -120,7 +120,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-card border border-border px-2.5 py-1 rounded-lg font-mono text-[11px] text-muted font-medium"
+                      className="bg-card border border-border px-2.5 py-1 rounded-md font-mono text-[11px] text-muted font-medium"
                     >
                       {tech}
                     </span>
@@ -133,7 +133,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-border text-sm font-bold text-muted hover:text-foreground hover:border-blue-500/30 transition-colors"
+                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-border text-sm font-bold text-muted hover:text-foreground hover:border-blue-500/30 transition-colors"
                     >
                       <Github size={16} /> {t.projects.source}
                     </a>
@@ -143,7 +143,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs font-semibold uppercase tracking-widest transition-colors ml-auto"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs font-semibold uppercase tracking-widest transition-colors ml-auto"
                     >
                       {t.projects.liveDemo}
                       <ArrowUpRight size={14} />
@@ -159,7 +159,7 @@ const Projects = ({ limit }: { limit?: number }) => {
           <div className="mt-16 flex justify-center">
             <Link
               to="/projects"
-              className="px-8 py-3.5 rounded-full border border-border text-foreground font-black text-base transition-all duration-300 hover:bg-card hover:border-blue-500/30 flex items-center gap-2 group"
+              className="px-8 py-3.5 rounded-xl border border-border text-foreground font-bold text-base transition-all duration-300 hover:bg-card hover:border-blue-500/30 flex items-center gap-2 group"
             >
               {t.projects.viewMore}
               <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

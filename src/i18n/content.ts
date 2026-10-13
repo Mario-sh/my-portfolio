@@ -34,12 +34,12 @@ export const timelineContent: Record<Lang, TimelineEntry[]> = {
     {
       year: "2025",
       detail: "Développeur web chez Ghinel, startup dédiée à la préservation culturelle par la technologie.",
-      more: "Développement de solutions numériques pour la valorisation et la préservation du patrimoine culturel.",
+      more: "Contribution au développement de solutions numériques pour valoriser et préserver le patrimoine culturel.",
     },
     {
       year: "2024–2026",
-      detail: "Développeur freelance en fullstack pour des PME et organisations.",
-      more: "Conception et développement de sites web sur-mesure, de la maquette à la mise en production.",
+      detail: "Développeur freelance fullstack pour des PME et organisations.",
+      more: "Sites sur-mesure de la maquette à la prod (ex. Cécile Goudou, Strateek) — frontend, intégrations et mise en ligne.",
     },
     {
       year: "2024–2025",
@@ -75,12 +75,12 @@ export const timelineContent: Record<Lang, TimelineEntry[]> = {
     {
       year: "2025",
       detail: "Web developer at Ghinel, a startup focused on cultural preservation through technology.",
-      more: "Building digital solutions to promote and preserve cultural heritage.",
+      more: "Contributed digital solutions to promote and preserve cultural heritage.",
     },
     {
       year: "2024–2026",
       detail: "Freelance full-stack developer for small businesses and organizations.",
-      more: "Designing and building custom websites, from mockup to production.",
+      more: "Custom sites from mockup to production (e.g. Cécile Goudou, Strateek) — frontend, integrations, and deploy.",
     },
     {
       year: "2024–2025",
@@ -106,126 +106,122 @@ export type ProjectEntry = {
 export const projectContent: Record<Lang, ProjectEntry[]> = {
   fr: [
     {
-      name: "TheSocialNetwork",
-      description: "Réseau social façon Facebook, développé en PHP et AJAX.",
-      tech: ["PHP", "AJAX"],
-      github: "https://github.com/Mario-sh/TheSocialNetwork",
-      category: "university",
-    },
-    {
       name: "Strateek",
       description:
-        "Site web et assistant IA pour une agence de marketing digital, avec un assistant contextuel disponible 24h/24 pour répondre aux questions sur l'entreprise.",
+        "Site et assistant IA pour une agence marketing : frontend React/TS et assistant contextuel (Groq) qui répond 24/7 aux questions sur l'entreprise. Code client non public.",
       tech: ["React", "TypeScript", "API Groq"],
       live: "https://strateek-digitalagency.onrender.com/",
-      // Code non partageable pour raisons de confidentialité client : redirige vers le profil GitHub.
-      github: "https://github.com/Mario-sh",
       category: "web",
-    },
-    {
-      name: "Régulation Foncière IA",
-      description:
-        "Application de régulation foncière pilotée par l'IA, développée lors du hackathon ASIN (Luxdev, septembre 2025).",
-      tech: ["React", "TypeScript", "Python", "FastAPI"],
-      live: "https://les-mentats-luxdev-hackaton-ia-2025.vercel.app/",
-      github: "https://github.com/elonmelonm/les_mentats-luxdev-hackaton-ia-2025",
-      category: "hackathon",
     },
     {
       name: "Academic Twins",
       description:
-        "Plateforme intelligente de suivi académique, développée avec l'équipe Shadow-404 lors du hackathon HACKBYIFRI.",
+        "Plateforme de suivi académique (hackathon HACKBYIFRI) : frontend React/Vite et API Django/DRF avec l'équipe Shadow-404 — démo live disponible.",
       tech: ["React", "Vite", "Django", "DRF"],
       live: "https://academictwins.vercel.app/register",
       github: "https://github.com/Mario-sh/Shadow-404_HACKBYIFRI_2026",
       category: "hackathon",
     },
     {
+      name: "Régulation Foncière IA",
+      description:
+        "App de régulation foncière assistée par l'IA (hackathon ASIN/Luxdev) : React/TS + FastAPI, construite en équipe (Les Mentats) sous contrainte de temps.",
+      tech: ["React", "TypeScript", "Python", "FastAPI"],
+      live: "https://les-mentats-luxdev-hackaton-ia-2025.vercel.app/",
+      github: "https://github.com/elonmelonm/les_mentats-luxdev-hackaton-ia-2025",
+      category: "hackathon",
+    },
+    {
       name: "Cécile Goudou",
-      description: "Site vitrine professionnel pour une journaliste.",
+      description: "Site vitrine pro pour une journaliste : identité, parcours et contenus, livré en production.",
       tech: [],
       live: "https://cecilegoudou.com",
       category: "web",
     },
     {
+      name: "TheSocialNetwork",
+      description: "Réseau social type Facebook (projet univ.) : posts, interactions et UI dynamique en PHP/AJAX.",
+      tech: ["PHP", "AJAX"],
+      github: "https://github.com/Mario-sh/TheSocialNetwork",
+      category: "university",
+    },
+    {
       name: "BiblioTech",
       // TODO: ajouter le lien GitHub une fois le repo publié
-      description: "Application de gestion de bibliothèque développée avec Laravel.",
+      description: "Gestion de bibliothèque (emprunt, catalogue) en Laravel — projet universitaire.",
       tech: ["Laravel"],
       category: "university",
     },
     {
       name: "Sudoku",
-      description: "Jeu de Sudoku en Java, développé en programmation orientée objet.",
+      description: "Jeu de Sudoku en Java pour pratiquer la POO et la logique métier.",
       tech: ["Java", "POO"],
       category: "university",
     },
     {
       name: "Démineur",
-      description: "Jeu du démineur développé en C.",
+      description: "Jeu du démineur en C — structures de données et gestion mémoire.",
       tech: ["C"],
       category: "university",
     },
   ],
   en: [
     {
-      name: "TheSocialNetwork",
-      description: "A Facebook-style social network, built with PHP and AJAX.",
-      tech: ["PHP", "AJAX"],
-      github: "https://github.com/Mario-sh/TheSocialNetwork",
-      category: "university",
-    },
-    {
       name: "Strateek",
       description:
-        "Website and AI assistant for a digital marketing agency, with a context-aware assistant answering company questions around the clock.",
+        "Website and AI assistant for a marketing agency: React/TS frontend plus a context-aware Groq assistant answering company questions 24/7. Client code is private.",
       tech: ["React", "TypeScript", "Groq API"],
       live: "https://strateek-digitalagency.onrender.com/",
-      // Code not shareable for client confidentiality reasons: links to the GitHub profile instead.
-      github: "https://github.com/Mario-sh",
       category: "web",
-    },
-    {
-      name: "AI Land Regulation",
-      description:
-        "AI-driven land regulation application, built during the ASIN Hackathon (Luxdev, September 2025).",
-      tech: ["React", "TypeScript", "Python", "FastAPI"],
-      live: "https://les-mentats-luxdev-hackaton-ia-2025.vercel.app/",
-      github: "https://github.com/elonmelonm/les_mentats-luxdev-hackaton-ia-2025",
-      category: "hackathon",
     },
     {
       name: "Academic Twins",
       description:
-        "Intelligent academic tracking platform, built with the Shadow-404 team during the HACKBYIFRI hackathon.",
+        "Academic tracking platform (HACKBYIFRI hackathon): React/Vite frontend and Django/DRF API with the Shadow-404 team — live demo available.",
       tech: ["React", "Vite", "Django", "DRF"],
       live: "https://academictwins.vercel.app/register",
       github: "https://github.com/Mario-sh/Shadow-404_HACKBYIFRI_2026",
       category: "hackathon",
     },
     {
+      name: "AI Land Regulation",
+      description:
+        "AI-assisted land regulation app (ASIN/Luxdev hackathon): React/TS + FastAPI, built with Les Mentats under a tight deadline.",
+      tech: ["React", "TypeScript", "Python", "FastAPI"],
+      live: "https://les-mentats-luxdev-hackaton-ia-2025.vercel.app/",
+      github: "https://github.com/elonmelonm/les_mentats-luxdev-hackaton-ia-2025",
+      category: "hackathon",
+    },
+    {
       name: "Cécile Goudou",
-      description: "Professional showcase website for a journalist.",
+      description: "Professional showcase site for a journalist: brand, career, and content — shipped to production.",
       tech: [],
       live: "https://cecilegoudou.com",
       category: "web",
     },
     {
+      name: "TheSocialNetwork",
+      description: "Facebook-style social network (university project): posts, interactions, and dynamic UI in PHP/AJAX.",
+      tech: ["PHP", "AJAX"],
+      github: "https://github.com/Mario-sh/TheSocialNetwork",
+      category: "university",
+    },
+    {
       name: "BiblioTech",
       // TODO: add the GitHub link once the repo is public
-      description: "Library management application built with Laravel.",
+      description: "Library management app (loans, catalog) in Laravel — university project.",
       tech: ["Laravel"],
       category: "university",
     },
     {
       name: "Sudoku",
-      description: "A Sudoku game in Java, built with object-oriented programming.",
+      description: "Sudoku game in Java to practice OOP and game logic.",
       tech: ["Java", "OOP"],
       category: "university",
     },
     {
       name: "Minesweeper",
-      description: "A Minesweeper game built in C.",
+      description: "Minesweeper in C — data structures and memory handling.",
       tech: ["C"],
       category: "university",
     },

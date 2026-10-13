@@ -29,7 +29,7 @@ const Hero = () => {
               <span className="sm:hidden">{t.hero.intro}</span>
               {personalInfo.name}
             </span>
-            <span className="block text-muted text-2xl sm:text-4xl lg:text-6xl leading-[1.15] font-bold">
+            <span className="block mt-3 text-muted text-lg sm:text-xl lg:text-2xl leading-snug font-semibold tracking-tight">
               {personalInfo.role}
             </span>
           </motion.h1>
@@ -39,7 +39,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-muted leading-relaxed max-w-lg"
+            className="text-base md:text-lg text-muted leading-relaxed max-w-lg pt-1"
           >
             {t.hero.bio}
           </motion.p>
@@ -59,7 +59,7 @@ const Hero = () => {
                 e.preventDefault();
                 document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-foreground text-background font-black text-base hover:opacity-90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl whitespace-nowrap"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-foreground text-background font-bold text-base hover:opacity-90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group whitespace-nowrap"
             >
               {t.hero.ctaWork}
             </a>
@@ -70,7 +70,7 @@ const Hero = () => {
                 e.preventDefault();
                 document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20 whitespace-nowrap"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-base transition-all duration-300 flex items-center justify-center gap-2 group whitespace-nowrap"
             >
               {t.hero.ctaContact}
               <Send className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={18} />
@@ -106,26 +106,22 @@ const Hero = () => {
         className="relative flex-shrink-0"
       >
         <div className="relative group">
-          {/* Offset frame: carte décalée derrière la photo, façon pile de fiches */}
-          <div className="absolute -bottom-4 -right-4 w-[300px] md:w-[340px] lg:w-[380px] aspect-square rounded-3xl border-2 border-blue-500/30 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1" />
+          {/* Offset frame */}
+          <div className="absolute -bottom-3 -right-3 w-[300px] md:w-[360px] lg:w-[400px] aspect-square rounded-2xl border border-border transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1" />
 
           {/* Avatar Container */}
-          <div className="relative w-[300px] md:w-[340px] lg:w-[380px] aspect-square rounded-3xl overflow-hidden border border-border shadow-2xl bg-card">
+          <div className="relative w-[300px] md:w-[360px] lg:w-[400px] aspect-square rounded-2xl overflow-hidden border border-border shadow-xl bg-card">
             <picture>
               <source srcSet={personalInfo.avatarWebpUrl} type="image/webp" />
               <img
                 src={personalInfo.avatarUrl}
                 alt={`${personalInfo.name} (${personalInfo.fullName})`}
-                className="w-full h-full object-cover scale-105 group-hover:scale-100 grayscale group-hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover scale-[1.02] group-hover:scale-100 transition-transform duration-700"
               />
             </picture>
 
-            {/* Overlay Effects */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-background/30 group-hover:via-transparent transition-all duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent pointer-events-none" />
           </div>
-
-          {/* Glow */}
-          <div className="absolute -inset-12 bg-blue-500/10 blur-[90px] rounded-full -z-10 opacity-0 group-hover:opacity-80 transition-opacity duration-700" />
         </div>
       </motion.div>
     </motion.section>

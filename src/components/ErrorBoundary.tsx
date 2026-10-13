@@ -19,7 +19,7 @@ const ErrorFallback = () => {
       </p>
       <button
         onClick={() => window.location.assign("/")}
-        className="mt-2 px-8 py-3.5 rounded-full bg-foreground text-background font-black text-base hover:opacity-90 active:scale-95 transition-all duration-300"
+        className="mt-2 px-8 py-3.5 rounded-xl bg-foreground text-background font-bold text-base hover:opacity-90 active:scale-95 transition-all duration-300"
       >
         {t.errorBoundary.cta}
       </button>

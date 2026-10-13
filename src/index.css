@@ -31,13 +31,13 @@
 /* Dark theme — dominant near-black, same blue accent */
 .dark {
   color-scheme: dark;
-  --background: #050505;
+  --background: #0a0a0b;
   --foreground: #ffffff;
   --muted: #a1a1aa;
   --faint: #6b6f78;
-  --border: rgba(255, 255, 255, 0.08);
-  --card: rgba(255, 255, 255, 0.02);
-  --card-strong: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+  --card: rgba(255, 255, 255, 0.045);
+  --card-strong: rgba(255, 255, 255, 0.08);
   --primary: #3b82f6;
   --ring: var(--primary);
 }

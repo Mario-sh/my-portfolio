@@ -12,7 +12,7 @@ const fallbackIcons = { zap: Zap, sparkles: Sparkles, code: Code2 };
 const Skills = () => {
   const { t } = useLanguage();
   return (
-    <section id="skills" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10 scroll-mt-32">
+    <section id="skills" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-foreground relative z-10 scroll-mt-24">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

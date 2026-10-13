@@ -11,7 +11,7 @@ export const personalInfo = {
   fullName: "Mario Miguel Dylane Lokossou Soton",
   alias: "Mario",
   location: "Cotonou, Bénin",
-  role: "Full-Stack Engineer · AI Integration",
+  role: "Software Engineering Student · Full-Stack & AI",
   college: "ESGIS Cotonou",
   // TODO: ajouter l'URL du site de votre école si vous voulez que "ESGIS Cotonou" soit un lien
   collegeUrl: "",
